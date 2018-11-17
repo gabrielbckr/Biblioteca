@@ -6,14 +6,14 @@ using namespace std;
 
 class Publicacao{
     int codPublicacao, ano;
-    string titulo, editora; 
-public: 
+    string titulo, editora;
+public:
     Publicacao(string t, string ed, int a, int cod):
                 titulo(t), editora(ed),ano(a), codPublicacao(cod){};
-    ~Publicacao();
+    virtual ~Publicacao();
 };
 
-/*  ESPESSIFICAÇÃO */
+/*  ESPECIFICAÇÃO */
 
 /*Classe Publicação:
 § Atributos: codPublicacao (int), titulo (string), editora (string) e ano (int);*/
