@@ -16,7 +16,7 @@ public:
     void cadastrarLivro(const Livro) const;
     void cadastrarPeriodico(const Periodico) const;
     void cadastrarEmprestimo(const Emprestimo) const;
-    void inserirItem(const ItemEmprestimo, Emprestimo&)const;
+    void inserirItem(const ItemEmprestimo, Emprestimo&) const;
     void excluirUsuario(Usuario&) const;
     void excluirLivro(Livro&) const;
     void excluirPeriodico(Periodico&) const;
