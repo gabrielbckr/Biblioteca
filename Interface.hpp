@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Interface: {
+class Interface {
     // TODO
 public:
     Interface();
