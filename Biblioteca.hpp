@@ -24,16 +24,8 @@ public:
     void lerArquivo();
     void inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
     void excluirPublicacao(Publicacao); // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;
+    void devolverItem(Emprestimo, Livro);
+    void devolverTodosItens(Emprestimo);
+    vector<Publicacao*> buscaPublicacao(string);
+    vector<Livro*> buscaLivroAutor(string);
 };
-/*
-
-§ Deve existir um método para devolver um item (livro) de um empréstimo. Argumento: o empréstimo e o
-livro a ser devolvido.
-§ Deve existir um método para devolver todos os livros de um empréstimo. Argumento: o empréstimo.
-§ Deve existir um método para pesquisar publicações (livro ou periódico) por título. Argumento: uma string
-especificando parte do título da publicação. O método deve retornar uma lista com todas as publicações
-que contêm a string no título;
-§ Deve existir um método para pesquisar livros por autor. Argumento: uma string especificando parte do
-nome do autor. O método deve retornar uma lista com todos os livros que contêm a string no nome dos
-autores;
-*/
