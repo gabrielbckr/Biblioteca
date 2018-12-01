@@ -16,6 +16,7 @@ class Date {
 public:
 	Date(); // constroi um Date com a hora de agora
 	Date(const string&); // constroi um Date com a hora passada por string em formato dd/mm/yyyy
+	Date& Hoje(); // seta a data para o dia de hoje
 	const string pegarData() const; // retorna string dd/mm/yyyy
 	void setarData(const string&); // seta a data do objeto
 	void adicionarDias(const int&); // adiciona dias
