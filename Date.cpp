@@ -47,6 +47,12 @@ Date::Date(const string& ds) {
 const string Date::pegarData() const {
 	return dataString;
 }
+void Date::setarData(const string& d) {
+	if (regex_match(d, Date::re)) {
+		dataString = d;
+	}
+	else throw "data invalida";
+}
 void Date::adicionarDias(const int& dias) {
 	time_t dataT = stringToTime(dataString);
 	dataT += static_cast<time_t> (dias * 86400); // acrescenta os dias em segundos a data atual
