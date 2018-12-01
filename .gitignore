@@ -1,1 +1,4 @@
 testmain.cpp
+*.tags
+Makefile
+test

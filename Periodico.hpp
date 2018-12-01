@@ -10,8 +10,11 @@ class Periodico: public Publicacao{
     string mes;
     int numEdicao;
 public:
-    Periodico(string Mes, int numEd):mes(Mes), numEdicao(numEd){}
+    Periodico(string t, string ed, int a, int cod, string Mes, int numEd):
+            Publicacao(t,ed,a,cod), mes(Mes), numEdicao(numEd){}
     ~Periodico();
+    string obterMes();
+    int obterEdicao();
 };
 
 #endif

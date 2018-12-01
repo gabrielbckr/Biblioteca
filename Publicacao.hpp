@@ -11,11 +11,11 @@ public:
     Publicacao(string t, string ed, int a, int cod):
                 titulo(t), editora(ed),ano(a), codPublicacao(cod){};
     virtual ~Publicacao();
+    int obterAno();
+    int obterCodigo();
+    string obterTitulo();
+    string obtereEditora();
 };
 
-/*  ESPECIFICAÇÃO */
-
-/*Classe Publicação:
-§ Atributos: codPublicacao (int), titulo (string), editora (string) e ano (int);*/
 
 #endif
