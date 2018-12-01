@@ -44,6 +44,11 @@ Date::Date(const string& ds) {
 		dataString = ds;
 	else throw "data invalida";
 }
+Date& Date::Hoje() {
+	Date aux;
+	dataString = aux.dataString;
+	return *this;
+}
 const string Date::pegarData() const {
 	return dataString;
 }
