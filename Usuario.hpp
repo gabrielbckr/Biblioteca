@@ -1,26 +1,30 @@
-#ifndef _USER_LIBRY_ 
+#ifndef _USER_LIBRY_
 #define _USER_LIBRY_
 
+#include "Date.hpp"
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 class Usuario{
-    string nome, cpf , endereco , fone , dataPenalizacao;
+    string nome, cpf, endereco, fone;
+    Date dataPenalizacao;
 public:
-    Usuario(string, string, string, string); // inicializa dataPenalizacao com data atual
+    Usuario(const string& n, const string& c, const string& e, const string& f) :
+        nome(n), cpf(c), endereco(e), fone(f), dataPenalizacao(Date()) {} // inicializa dataPenalizacao com data atual
+    const string pegarNome() const { return nome; }
+    const string pegarCpf() const { return cpf; }
+    const string pegarEndereco() const { return endereco; }
+    const string pegarFone() const { return fone; }
+    const Date pegarDataPen() const { return dataPenalizacao; }
+    void setarNome(const string& N) { nome = N; }
+    void setarCpf(const string& C) { cpf = C; }
+    void setarEndereco(const string& E) { endereco = E; }
+    void setarFone(const string& F) { fone = F; }
+    void setarDataPen(const string& D) { dataPenalizacao.setarData(D); }
     ~Usuario(){}
 
 };
 
-
-/* ESPESSIFICACAO */
-
-/*Classe Usuário:
-§ Atributos: string nome, cpf , endereco , fone  e Date dataPenalização 
-§ Deve existir um método construtor que inicializa todos os atributos através de argumentos com exceção
-do atributo dataPenalização. Este deve ser inicializado com a data corrente, sinalizando que o Usuário já
-poderá tomar um novo empréstimo a partir de seu cadastro. O significado deste atributo será explicado
-mais a frente.
-*/
 #endif
