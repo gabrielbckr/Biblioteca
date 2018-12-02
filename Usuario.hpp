@@ -22,7 +22,7 @@ public:
     void setarCpf(const string& C) { cpf = C; }
     void setarEndereco(const string& E) { endereco = E; }
     void setarFone(const string& F) { fone = F; }
-    void setarDataPen(const string& D) { dataPenalizacao.setarData(D); }
+    void setarDataPen(const Date& D) { dataPenalizacao = D; }
     ~Usuario(){}
 
 };
