@@ -1,3 +1,6 @@
+#ifndef _PUBLIC_MYVECTOR_
+#define _PUBLIC_MYVECTOR_
+
 #include <vector>
 #include <iostream>
 
@@ -32,3 +35,5 @@ public:
         return false;
     }
 };
+
+#endif
