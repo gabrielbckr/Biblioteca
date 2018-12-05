@@ -15,11 +15,11 @@ public:
     void adicionarPublicacao(Publicacao); 
     void adicionarEmprestimo(Emprestimo);
     void excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
-    void excluirEmprestmo(const Emprestimo);
+    void excluirEmprestimo(const Emprestimo);
     void exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
     void obterUsuarios();
     void obterPublicacoes();
-    void obteremprestimos();
+    void obterEmprestimos();
     void arquivarConteudo();
     void lerArquivo();
     void inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
