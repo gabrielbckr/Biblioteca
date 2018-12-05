@@ -2,5 +2,6 @@ testmain.cpp
 *.tags
 Makefile
 test
-
+.vscode*
+testerbin
 \.vscode/
