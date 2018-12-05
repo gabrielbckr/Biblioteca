@@ -34,6 +34,24 @@ public:
         }
         return false;
     }
+    friend ostream operator<<(ostream& op, myVector& m){
+        op<<"vector "<<m.size()<<std::endl;
+        for (int ii = 0; ii<m.size(); ii++){
+            op<<m[ii]<<std::endl;
+        }
+    }
+    friend istream operator>>(istream& op, myVector m){
+        string useles;
+        int size;
+        T var;
+        op>>useles>>size;
+        for(int ii = 0; ii<size; ii++){
+            cin>>var;
+            m.push_back(var);
+        }
+    }
 };
+
+
 
 #endif
