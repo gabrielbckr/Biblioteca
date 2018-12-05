@@ -15,7 +15,7 @@ public:
                 }
             }
             catch (int e){
-                throw("Implement operator== overloading");
+                throw("Implement operator== overload");
             }
         }
         return NULL;
@@ -28,7 +28,7 @@ public:
                 }
             }
             catch (int e){
-                throw("Implement operator== overloading");
+                throw("Implement operator== overload");
                 throw;
             }
         }
