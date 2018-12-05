@@ -1,7 +1,7 @@
 #include "Publicacao.hpp"
 
 
-Publicacao::Publicacao(Publicacao& p){
+Publicacao::Publicacao(const Publicacao& p){
     ano           = p.ano;
     codPublicacao = p.codPublicacao;
     editora       = p.editora;
@@ -19,13 +19,13 @@ string Publicacao::obterTitulo(){
 string Publicacao::obtereEditora(){
     return editora;
 }
-Publicacao& Publicacao::operator=(Publicacao& p){
+Publicacao& Publicacao::operator=(const Publicacao& p){
     ano           = p.ano;
     codPublicacao = p.codPublicacao;
     editora       = p.editora;
     titulo        = p.titulo;
 }
-bool Publicacao::operator==(Publicacao& p){
+bool Publicacao::operator==(const Publicacao& p){
     if (ano!=p.ano){return false;}
     if (codPublicacao!=p.codPublicacao){return false;}
     if (editora!=p.editora){return false;}

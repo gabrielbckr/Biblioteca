@@ -1,7 +1,7 @@
 #include "Livro.hpp"
 
 
-Livro::Livro(Livro& L) : Publicacao(L) {
+Livro::Livro(const Livro& L) : Publicacao(L) {
     autores = L.autores;
     qtdeExemplares = L.qtdeExemplares;
 }

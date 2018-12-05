@@ -10,14 +10,14 @@ class Publicacao{
 public:
     Publicacao(string t, string ed, int a, int cod):
                 titulo(t), editora(ed),ano(a), codPublicacao(cod){};
-    Publicacao(Publicacao&){};
+    Publicacao(const Publicacao&){};
     virtual ~Publicacao();
     int obterAno();
     int obterCodigo();
     string obterTitulo();
     string obtereEditora();
-    virtual Publicacao& operator=(Publicacao&);
-    virtual bool operator==(Publicacao&);
+    virtual Publicacao& operator=(const Publicacao&);
+    virtual bool operator==(const Publicacao&);
 };
 
 

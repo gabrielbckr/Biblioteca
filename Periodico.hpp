@@ -12,12 +12,12 @@ class Periodico: public Publicacao{
 public:
     Periodico(string t, string ed, int a, int cod, string Mes, int numEd):
             Publicacao(t,ed,a,cod), mes(Mes), numEdicao(numEd){}
-    Periodico(Periodico&);
+    Periodico(const Periodico&);
     ~Periodico(){}
     string obterMes();
     int obterEdicao();
-    Periodico& operator=(Periodico&);
-    bool operator==(Periodico&);
+    Periodico& operator=(const Periodico&);
+    bool operator==(const Periodico&);
 };
 
 #endif

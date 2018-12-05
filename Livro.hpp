@@ -12,7 +12,7 @@ public:
     Livro(string tit, string ed, int  a , int cod, string aut,
           int qtde = 0):Publicacao(tit, ed , a , cod),
                         autores(aut), qtdeExemplares(qtde){}
-    Livro(Livro&);
+    Livro(const Livro&);
     ~Livro();
     string obterAutores();
     int obterNumExemplares();
