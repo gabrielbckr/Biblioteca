@@ -15,6 +15,7 @@ public:
     int obterCodigo();
     string obterTitulo();
     string obtereEditora();
+    virtual bool operator==(Publicacao& p);
 };
 
 

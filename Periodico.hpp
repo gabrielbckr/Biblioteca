@@ -15,6 +15,7 @@ public:
     ~Periodico();
     string obterMes();
     int obterEdicao();
+    bool operator==(Periodico& p);
 };
 
 #endif

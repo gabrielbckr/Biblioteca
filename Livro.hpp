@@ -19,6 +19,7 @@ public:
     void subExemplar(){qtdeExemplares--;}
     Livro& operator++(int){qtdeExemplares++;}
     Livro& operator--(int){qtdeExemplares--;}
+    bool operator==(Livro& p);
 };
 
 #endif
