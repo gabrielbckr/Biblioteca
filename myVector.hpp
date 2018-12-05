@@ -12,8 +12,7 @@ public:
                 }
             }
             catch (int e){
-                std::cout << "An exception occurred. Exception Nr. " << e << '\n';
-                throw;
+                throw("Implement operator== overloading");
             }
         }
         return NULL;
@@ -26,7 +25,7 @@ public:
                 }
             }
             catch (int e){
-                std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+                throw("Implement operator== overloading");
                 throw;
             }
         }
