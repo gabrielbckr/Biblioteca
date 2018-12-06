@@ -18,6 +18,7 @@ public:
     int obterEdicao();
     Periodico& operator=(const Periodico&);
     bool operator==(const Periodico&);
+    friend ostream& operator<< (ostream& os, Periodico& );
 };
 
 #endif

@@ -22,3 +22,12 @@ bool Periodico::operator==(const Periodico& P){
     if (mes != P.mes){return false;}
     return this->Publicacao::operator==(P);
 }
+ostream& operator<< (ostream& os, Periodico& P){
+    os<<"Titulo: " <<P.obterTitulo()<<endl;
+    os<<"Ano: "    <<P.obterAno()<<endl;
+    os<<"Mes: "    <<P.mes<<endl;
+    os<<"Edicao: " <<P.numEdicao<<endl;
+    os<<"Editora: "<<P.obterEditora()<<endl;
+    os<<"Código: " <<P.obterCodigo()<<endl;
+    return os;
+}

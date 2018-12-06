@@ -15,7 +15,7 @@ public:
                 }
             }
             catch (int e){
-                throw("Implement operator== overloading");
+                throw("Implement operator== overload");
             }
         }
         return NULL;
@@ -28,19 +28,20 @@ public:
                 }
             }
             catch (int e){
-                throw("Implement operator== overloading");
+                throw("Implement operator== overload");
                 throw;
             }
         }
         return false;
     }
-    friend ostream operator<<(ostream& op, myVector& m){
+    friend ostream& operator<<(ostream& op, myVector& m){
         op<<"vector "<<m.size()<<std::endl;
         for (int ii = 0; ii<m.size(); ii++){
             op<<m[ii]<<std::endl;
         }
+        return op;
     }
-    friend istream operator>>(istream& op, myVector m){
+    friend istream& operator>>(istream& op, myVector m){
         string useles;
         int size;
         T var;
@@ -49,6 +50,7 @@ public:
             cin>>var;
             m.push_back(var);
         }
+        return op;
     }
 };
 
