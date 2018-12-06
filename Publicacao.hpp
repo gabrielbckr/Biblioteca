@@ -12,7 +12,7 @@ class Publicacao{
 public:
     Publicacao(string t, string ed, int a, int cod):
                 titulo(t), editora(ed),ano(a), codPublicacao(cod){};
-    Publicacao(const Publicacao&){};
+    Publicacao(const Publicacao&);
     virtual ~Publicacao();
     int obterAno(){return ano;}
     int obterCodigo(){return codPublicacao;}
