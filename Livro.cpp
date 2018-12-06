@@ -26,7 +26,7 @@ bool Livro::operator==(Livro& L){
 ostream& operator<< (ostream& os, Livro& L){
     os<<"Titulo: "      <<L.obterTitulo()<<endl;
     os<<"Autores: "     <<L.obterAutores()<<endl;
-    os<<"Ano: "         <<L.obterAutores()<<endl;
+    os<<"Ano: "         <<L.obterAno()<<endl;
     os<<"Editora: "     <<L.obterEditora()<<endl;
     os<<"Exemplares: "  <<L.obterNumExemplares()<<endl;
     os<<"Código: "      <<L.obterCodigo()<<endl;
@@ -42,7 +42,7 @@ istream& operator>> (istream& is , Livro& L){
     L.setarTitulo(aux);
     // Read atribute autores
     getline(is,aux);
-    stringstream ssin(aux);
+    ssin = stringstream(aux);
     ssin>>useless;
     aux = ssin.str();
     L.setarAutores(aux);
@@ -61,7 +61,7 @@ istream& operator>> (istream& is , Livro& L){
     L.setarEditora(aux);
     // Read Atribute exemplares
     getline(is,aux);
-    stringstream ssin(aux);
+    ssin = stringstream(aux);
     ssin>>useless;
     aux = ssin.str();
     int exemp = stoi(aux);
@@ -75,3 +75,4 @@ istream& operator>> (istream& is , Livro& L){
     L.setarCodigo(cod);
     return is;
 } 
+Livro::~Livro(){}
