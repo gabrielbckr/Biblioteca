@@ -3,29 +3,29 @@
 #include "Emprestimo.hpp"
 #include "Periodico.hpp"
 #include "ItemEmprestimo.hpp"   
-#include <vector>
+#include "myVector.hpp"
 
 class Biblioteca{
-    vector<Usuario> usuarios;
-    vector<Publicacao> livros;
-    vector<Emprestimo> emprestimos;
+    myVector<Usuario> usuarios;
+    myVector<Publicacao> livros;
+    myVector<Emprestimo> emprestimos;
 public:
     Biblioteca();// tudo vazio mesmo.
-    void adicionarUsuario(Usuario);
-    void adicionarPublicacao(Publicacao); 
-    void adicionarEmprestimo(Emprestimo);
-    void excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
-    void excluirEmprestimo(const Emprestimo);
-    void exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
-    void obterUsuarios();
-    void obterPublicacoes();
-    void obterEmprestimos();
-    void arquivarConteudo();
-    void lerArquivo();
-    void inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
-    void excluirPublicacao(Publicacao); // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;
-    void devolverItem(Emprestimo, Livro);
-    void devolverTodosItens(Emprestimo);
-    vector<Publicacao*> buscaPublicacao(string);
-    vector<Livro*> buscaLivroAutor(string);
+    Biblioteca& adicionarUsuario(Usuario);
+    Biblioteca& adicionarPublicacao(Publicacao); 
+    Biblioteca& adicionarEmprestimo(Emprestimo);
+    Biblioteca& excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
+    Biblioteca& excluirEmprestimo(const Emprestimo);
+    Biblioteca& exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
+    Biblioteca& obterUsuarios();
+    Biblioteca& obterPublicacoes();
+    Biblioteca& obterEmprestimos();
+    Biblioteca& arquivarConteudo();
+    Biblioteca& lerArquivo();
+    Biblioteca& inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
+    Biblioteca& excluirPublicacao(Publicacao); // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;
+    Biblioteca& devolverItem(Emprestimo, Livro);
+    Biblioteca& devolverTodosItens(Emprestimo);
+    myVector<Publicacao*> buscaPublicacao(string);
+    myVector<Livro*> buscaLivroAutor(string);
 };
