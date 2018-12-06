@@ -18,11 +18,11 @@ public:
     const string pegarEndereco() const { return endereco; }
     const string pegarFone() const { return fone; }
     const Date pegarDataPen() const { return dataPenalizacao; }
-    void setarNome(const string& N) { nome = N; }
-    void setarCpf(const string& C) { cpf = C; }
-    void setarEndereco(const string& E) { endereco = E; }
-    void setarFone(const string& F) { fone = F; }
-    void setarDataPen(const Date& D) { dataPenalizacao = D; }
+    Usuario& setarNome(const string& N) { nome = N;  return *this;}
+    Usuario& setarCpf(const string& C) { cpf = C;  return *this;}
+    Usuario& setarEndereco(const string& E) { endereco = E;  return *this;}
+    Usuario& setarFone(const string& F) { fone = F;  return *this;}
+    Usuario& setarDataPen(const Date& D) { dataPenalizacao = D; return *this;}
     ~Usuario(){}
 
 };

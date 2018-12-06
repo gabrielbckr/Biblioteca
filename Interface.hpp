@@ -8,24 +8,26 @@
 using namespace std;
 
 class Interface {
-    // TODO
+    Biblioteca* biblioteca;
 public:
     Interface();
-    void exibirMenu() const;
-    void cadastrarUsuario(const Usuario) const;
-    void cadastrarLivro(const Livro) const;
-    void cadastrarPeriodico(const Periodico) const;
-    void cadastrarEmprestimo(const Emprestimo) const;
-    void inserirItem(const ItemEmprestimo, Emprestimo&) const;
-    void excluirUsuario(Usuario&) const;
-    void excluirLivro(Livro&) const;
-    void excluirPeriodico(Periodico&) const;
-    void excluirEmprestimo(Emprestimo&) const;
-    void excluirItem(const ItemEmprestimo, Emprestimo&) const;
-    void devolverTodoEmprestimo(Emprestimo&);
-    void devolverLivro(Emprestimo&, Livro);
-    void pesquisarPublicacao(string);
-    void pesquisarLivroAutor(string);
+    Interface(Biblioteca* b):biblioteca(b){};
+    Interface(Biblioteca& b):biblioteca(&b){};
+    void exibirMenu() ;
+    void cadastrarUsuario() ;
+    void cadastrarLivro();
+    void cadastrarPeriodico();
+    void cadastrarEmprestimo();
+    void inserirItem() ;
+    void excluirUsuario();
+    void excluirLivro() ;
+    void excluirPeriodico() ;
+    void excluirEmprestimo();
+    void excluirItem();
+    void devolverTodoEmprestimo();
+    void devolverLivro();
+    void pesquisarPublicacao();
+    void pesquisarLivroAutor();
     void listarPublicacoes();
     void listarEmprestimos();
     ~Interface();
