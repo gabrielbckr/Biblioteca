@@ -14,8 +14,8 @@ public:
             Publicacao(t,ed,a,cod), mes(Mes), numEdicao(numEd){}
     Periodico(const Periodico&);
     ~Periodico(){}
-    string obterMes();
-    int obterEdicao();
+    string obterMes(){return mes;}
+    int obterEdicao(){return numEdicao;}
     Periodico& operator=(const Periodico&);
     bool operator==(const Periodico&);
     friend ostream& operator<< (ostream& os, Periodico& );
