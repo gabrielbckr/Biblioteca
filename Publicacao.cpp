@@ -1,5 +1,5 @@
 #include "Publicacao.hpp"
-
+#include <sstream>
 
 Publicacao::Publicacao(const Publicacao& p){
     ano           = p.ano;
@@ -16,7 +16,7 @@ int Publicacao::obterCodigo(){
 string Publicacao::obterTitulo(){
     return titulo;
 }
-string Publicacao::obtereEditora(){
+string Publicacao::obterEditora(){
     return editora;
 }
 Publicacao& Publicacao::operator=(const Publicacao& p){
@@ -32,4 +32,11 @@ bool Publicacao::operator==(const Publicacao& p){
     if (editora!=p.editora){return false;}
     if (titulo!=p.titulo){return false;}
     return true;
+}
+ostream& operator<< (ostream& os, Publicacao& P){
+    os<<"Titulo: " <<P.titulo<<endl;
+    os<<"Ano: "    <<P.ano<<endl;
+    os<<"Editora: "<<P.editora<<endl;
+    os<<"Código: " <<P.codPublicacao<<endl;
+    return os;
 }

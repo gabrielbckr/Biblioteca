@@ -2,6 +2,8 @@
 #define _PUBLIC_LIBRY_
 
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 class Publicacao{
@@ -15,9 +17,10 @@ public:
     int obterAno();
     int obterCodigo();
     string obterTitulo();
-    string obtereEditora();
+    string obterEditora();
     virtual Publicacao& operator=(const Publicacao&);
     virtual bool operator==(const Publicacao&);
+    friend ostream& operator<< (ostream&, Publicacao&);
 };
 
 

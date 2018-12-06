@@ -22,3 +22,11 @@ bool Livro::operator==(Livro& L){
     if (qtdeExemplares != L.qtdeExemplares){return false;}
     return this->Publicacao::operator==(L);
 }
+ostream& operator<< (ostream& os, Livro& L){
+    os<<"Titulo: "      <<L.obterTitulo()<<endl;
+    os<<"Ano: "         <<L.obterAutores()<<endl;
+    os<<"Editora: "     <<L.obterEditora()<<endl;
+    os<<"Exemplares: "  <<L.obterNumExemplares()<<endl;
+    os<<"Código: "      <<L.obterCodigo()<<endl;
+    return os;
+}

@@ -22,6 +22,7 @@ public:
     Livro& operator--(int){qtdeExemplares--;}
     Livro& operator=(Livro&);
     bool operator==(Livro& p);
+    friend ostream& operator<< (ostream& os, Livro& L); 
 };
 
 #endif
