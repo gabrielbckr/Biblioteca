@@ -16,9 +16,12 @@ public:
     ~Periodico(){}
     string obterMes(){return mes;}
     int obterEdicao(){return numEdicao;}
+    Periodico& setarEdicao(int n){numEdicao = n; return *this;}
+    Periodico& setarMes(string n){mes = n; return *this;}
     Periodico& operator=(const Periodico&);
     bool operator==(const Periodico&);
-    friend ostream& operator<< (ostream& os, Periodico& );
+    friend ostream& operator<< (ostream&, Periodico&);
+    friend istream& operator>> (istream&, Periodico&);
 };
 
 #endif

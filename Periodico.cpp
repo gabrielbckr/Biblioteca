@@ -1,11 +1,12 @@
 #include "Periodico.hpp"
+#include <sstream>
 
 
 Periodico::Periodico(const Periodico& P) : Publicacao(P){
     mes = P.mes;
     numEdicao = P.numEdicao;
 }
-Periodico& Periodico::operator=(const Periodico& P){
+Periodico& Periodico::operator=(Periodico& P){
     this->Publicacao::operator=(P);
     mes = P.mes;
     numEdicao = P.numEdicao;
@@ -25,3 +26,46 @@ ostream& operator<< (ostream& os, Periodico& P){
     os<<"Código: " <<P.obterCodigo()<<endl;
     return os;
 }
+istream& operator>> (istream& is , Periodico& P){
+    string aux, useless;
+    // Read atribute titulo
+    getline(is,aux);
+    stringstream ssin(aux);
+    ssin>>useless;
+    aux = ssin.str();
+    P.setarTitulo(aux);
+    // Read atribute ano
+    getline(is,aux);
+    ssin = stringstream(aux);
+    ssin>>useless;
+    aux = ssin.str();
+    int ano = stoi(aux);
+    P.setarAno(ano);
+    // Read atribute mes
+    getline(is,aux);
+    ssin = stringstream(aux);
+    ssin>>useless;
+    aux = ssin.str();
+    P.setarMes(aux);
+    // Read edicao
+    getline(is,aux);
+    ssin = stringstream(aux);
+    ssin>>useless;
+    aux = ssin.str();
+    int ed = stoi(aux);
+    P.setarEdicao(ed);
+    // Read atribute Editora
+    getline(is,aux);
+    ssin = stringstream(aux);
+    ssin>>useless;
+    aux = ssin.str();
+    P.setarEditora(aux);
+    // Read atribute codigo
+    getline(is,aux);
+    ssin = stringstream(aux);
+    ssin>>useless;
+    aux = ssin.str();
+    int cod = stoi(aux);
+    P.setarCodigo(cod);
+    return is;
+} 
