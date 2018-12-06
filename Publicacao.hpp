@@ -18,9 +18,14 @@ public:
     int obterCodigo(){return codPublicacao;}
     string obterTitulo(){return titulo;}
     string obterEditora(){return editora;}
+    Publicacao& setarCodigo(int n){codPublicacao = n; return *this;}
+    Publicacao& setarAno(int n){ano = n; return *this;}
+    Publicacao& setarTitulo(string s){titulo = s; return *this;}
+    Publicacao& setarEditora(string s){editora = s; return *this;}
     virtual Publicacao& operator=(const Publicacao&);
     virtual bool operator==(const Publicacao&);
     friend ostream& operator<< (ostream&, Publicacao&);
+    friend istream& operator>> (istream&, Publicacao&);
 };
 
 

@@ -16,13 +16,16 @@ public:
     ~Livro();
     string obterAutores();
     int obterNumExemplares();
-    void adExemplar(){qtdeExemplares++;}
-    void subExemplar(){qtdeExemplares--;}
-    Livro& operator++(int){qtdeExemplares++;}
-    Livro& operator--(int){qtdeExemplares--;}
+    Livro& adExemplar(){qtdeExemplares++; return *this;}
+    Livro& subExemplar(){qtdeExemplares--; return *this;}
+    Livro& setarExemplares(int n){qtdeExemplares = n; return *this;}
+    Livro& setarAutores(string s){autores = s; return *this;}
+    Livro& operator++(int){qtdeExemplares++; return *this;}
+    Livro& operator--(int){qtdeExemplares--; return *this;}
     Livro& operator=(Livro&);
     bool operator==(Livro& p);
-    friend ostream& operator<< (ostream& os, Livro& L); 
+    friend ostream& operator<< (ostream&, Livro&);
+    friend istream& operator>> (istream&, Livro&); 
 };
 
 #endif
