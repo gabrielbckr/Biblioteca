@@ -58,3 +58,4 @@ istream& operator>> (istream& is , Publicacao& P){
     P.setarCodigo(cod);
     return is;
 } 
+Publicacao::~Publicacao(){}

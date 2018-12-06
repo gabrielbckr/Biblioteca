@@ -6,7 +6,7 @@ Periodico::Periodico(const Periodico& P) : Publicacao(P){
     mes = P.mes;
     numEdicao = P.numEdicao;
 }
-Periodico& Periodico::operator=(Periodico& P){
+Periodico& Periodico::operator=(const Periodico& P){
     this->Publicacao::operator=(P);
     mes = P.mes;
     numEdicao = P.numEdicao;
