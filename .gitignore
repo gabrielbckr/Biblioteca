@@ -10,3 +10,4 @@ test*
 exec
 notebook*
 *.ipynb
+*.ipynb*
