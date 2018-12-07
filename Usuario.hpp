@@ -25,14 +25,11 @@ public:
     Usuario& setarEndereco(const string& E) { endereco = E;  return *this;}
     Usuario& setarFone(const string& F) { fone = F;  return *this;}
     Usuario& setarDataPen(const Date& D) { dataPenalizacao = D; return *this;}
-<<<<<<< HEAD
     Usuario&  mostrar();
     Usuario& operator=(const Usuario&);
     bool operator==(const Usuario&) const;
     friend ostream& operator<<(ostream&, Usuario&);
     friend istream& operator>>(istream&, Usuario&);
-=======
->>>>>>> interface
     ~Usuario(){}
 
 };
