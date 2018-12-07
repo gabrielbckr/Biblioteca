@@ -11,15 +11,15 @@ class Biblioteca{
     myVector<Emprestimo> emprestimos;
 public:
     Biblioteca();// tudo vazio mesmo.
-    Biblioteca& adicionarUsuario(Usuario);
-    Biblioteca& adicionarPublicacao(Publicacao); 
+    bool adicionarUsuario(Usuario);
+    bool adicionarPublicacao(Publicacao); 
     Biblioteca& adicionarEmprestimo(Emprestimo);
     Biblioteca& excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
     Biblioteca& excluirEmprestimo(const Emprestimo);
     Biblioteca& exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
-    Biblioteca& obterUsuarios();
-    Biblioteca& obterPublicacoes();
-    Biblioteca& obterEmprestimos();
+    myVector<Usuario>& obterUsuarios();
+    myVector<Publicacao>& obterPublicacoes();
+    myVector<Emprestimo>& obterEmprestimos();
     Biblioteca& arquivarConteudo();
     Biblioteca& lerArquivo();
     Biblioteca& inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
