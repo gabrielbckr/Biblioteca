@@ -8,3 +8,5 @@ testerbin
 test*
 *.sh
 exec
+notebook*
+*.ipynb
