@@ -23,56 +23,38 @@ bool Livro::operator==(Livro& L){
     if (qtdeExemplares != L.qtdeExemplares){return false;}
     return this->Publicacao::operator==(L);
 }
+Livro& Livro::mostrar(){
+    cout<<"Titulo: "      <<obterTitulo()<<endl;
+    cout<<"Autores: "     <<obterAutores()<<endl;
+    cout<<"Ano: "         <<obterAno()<<endl;
+    cout<<"Editora: "     <<obterEditora()<<endl;
+    cout<<"Exemplares: "  <<obterNumExemplares()<<endl;
+    cout<<"Código: "      <<obterCodigo()<<endl;
+    return *this;
+}
 ostream& operator<< (ostream& os, Livro& L){
-    os<<"Titulo: "      <<L.obterTitulo()<<endl;
-    os<<"Autores: "     <<L.obterAutores()<<endl;
-    os<<"Ano: "         <<L.obterAno()<<endl;
-    os<<"Editora: "     <<L.obterEditora()<<endl;
-    os<<"Exemplares: "  <<L.obterNumExemplares()<<endl;
-    os<<"Código: "      <<L.obterCodigo()<<endl;
+    os<<L.obterTitulo()<<endl;
+    os<<L.obterAutores()<<endl;
+    os<<L.obterAno()<<endl;
+    os<<L.obterEditora()<<endl;
+    os<<L.obterNumExemplares()<<endl;
+    os<<L.obterCodigo()<<endl;
     return os;
 }
 istream& operator>> (istream& is , Livro& L){
-    string aux, useless;
-    // Read atribute titulo
+    string aux;
     getline(is,aux);
-    stringstream ssin(aux);
-    ssin>>useless;
-    aux = ssin.str();
     L.setarTitulo(aux);
-    // Read atribute autores
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
     L.setarAutores(aux);
-    // Read atribute ano
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int ano = stoi(aux);
-    L.setarAno(ano);
-    // Read atribute Editora
+    L.setarAno(stoi(aux));
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
     L.setarEditora(aux);
-    // Read Atribute exemplares
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int exemp = stoi(aux);
-    L.setarExemplares(exemp);
-    // Read atribute codigo
+    L.qtdeExemplares = stoi(aux);
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int cod = stoi(aux);
-    L.setarCodigo(cod);
+    L.setarCodigo(stoi(aux));
     return is;
 } 
 Livro::~Livro(){}

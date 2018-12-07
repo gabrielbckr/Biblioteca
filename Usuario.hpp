@@ -11,18 +11,25 @@ class Usuario{
     string nome, cpf, endereco, fone;
     Date dataPenalizacao;
 public:
-    Usuario(const string& n, const string& c, const string& e, const string& f) :
+    Usuario(const string& n = string("def"), const string& c = string("def"),
+        const string& e = string("def"), const string& f = string("def")) :
         nome(n), cpf(c), endereco(e), fone(f), dataPenalizacao(Date()) {} // inicializa dataPenalizacao com data atual
+    Usuario(Usuario&);
     const string pegarNome() const { return nome; }
     const string pegarCpf() const { return cpf; }
     const string pegarEndereco() const { return endereco; }
     const string pegarFone() const { return fone; }
     const Date pegarDataPen() const { return dataPenalizacao; }
-    void setarNome(const string& N) { nome = N; }
-    void setarCpf(const string& C) { cpf = C; }
-    void setarEndereco(const string& E) { endereco = E; }
-    void setarFone(const string& F) { fone = F; }
-    void setarDataPen(const Date& D) { dataPenalizacao = D; }
+    Usuario& setarNome(const string& N) { nome = N;  return *this;}
+    Usuario& setarCpf(const string& C) { cpf = C;  return *this;}
+    Usuario& setarEndereco(const string& E) { endereco = E;  return *this;}
+    Usuario& setarFone(const string& F) { fone = F;  return *this;}
+    Usuario& setarDataPen(const Date& D) { dataPenalizacao = D; return *this;}
+    Usuario&  mostrar();
+    Usuario& operator=(const Usuario&);
+    bool operator==(const Usuario&) const;
+    friend ostream& operator<<(ostream&, Usuario&);
+    friend istream& operator>>(istream&, Usuario&);
     ~Usuario(){}
 
 };

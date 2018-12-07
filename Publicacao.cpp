@@ -21,41 +21,26 @@ bool Publicacao::operator==(const Publicacao& p){
     if (titulo!=p.titulo){return false;}
     return true;
 }
+Publicacao& Publicacao::mostrar(){
+    cout<<"Titulo: " <<obterTitulo()<<endl;
+    cout<<"Ano: "    <<obterAno()<<endl;
+    cout<<"Editora: "<<obterEditora()<<endl;
+    cout<<"Código: " <<obterCodigo()<<endl;
+    return *this;
+}
 ostream& operator<< (ostream& os, Publicacao& P){
-    os<<"Titulo: " <<P.obterTitulo()<<endl;
-    os<<"Ano: "    <<P.obterAno()<<endl;
-    os<<"Editora: "<<P.obterEditora()<<endl;
-    os<<"Código: " <<P.obterCodigo()<<endl;
+    os<<P.obterTitulo()<<endl;
+    os<<P.obterAno()<<endl;
+    os<<P.obterEditora()<<endl;
+    os<<P.obterCodigo()<<endl;
     return os;
 }
 istream& operator>> (istream& is , Publicacao& P){
-    string aux, useless;
-    // Read atribute titulo
-    getline(is,aux);
-    stringstream ssin(aux);
-    ssin>>useless;
-    aux = ssin.str();
+    string aux;
     P.setarTitulo(aux);
-    // Read atribute ano
-    getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int ano = stoi(aux);
-    P.setarAno(ano);
-    // Read atribute Editora
-    getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
+    P.setarAno(stoi(aux));
     P.setarEditora(aux);
-    // Read atribute codigo
-    getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int cod = stoi(aux);
-    P.setarCodigo(cod);
+    P.setarCodigo(stoi(aux));
     return is;
 } 
 Publicacao::~Publicacao(){}
