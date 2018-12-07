@@ -8,10 +8,11 @@ using namespace std;
 class Livro: public Publicacao{
     string autores;
     int qtdeExemplares;
-public:
-    Livro(string tit, string ed, int  a , int cod, string aut,
-          int qtde = 0):Publicacao(tit, ed , a , cod),
-                        autores(aut), qtdeExemplares(qtde){}
+public: 
+    Livro(const string& tit= string("def") , const string& ed = string("def"), 
+        const int&  a = 0 , const int& cod = 0, const string& aut = string("def"),
+        const int& qtde = 0):Publicacao(tit, ed , a , cod),
+        autores(aut), qtdeExemplares(qtde){}
     Livro(const Livro&);
     ~Livro();
     string obterAutores();
@@ -22,6 +23,7 @@ public:
     Livro& setarAutores(string s){autores = s; return *this;}
     Livro& operator++(int){qtdeExemplares++; return *this;}
     Livro& operator--(int){qtdeExemplares--; return *this;}
+    Livro& mostrar();
     Livro& operator=(Livro&);
     bool operator==(Livro& p);
     friend ostream& operator<< (ostream&, Livro&);

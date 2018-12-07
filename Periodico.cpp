@@ -17,55 +17,37 @@ bool Periodico::operator==(const Periodico& P){
     if (mes != P.mes){return false;}
     return this->Publicacao::operator==(P);
 }
+Periodico& Periodico::mostrar(){
+    cout<<"Titulo: " <<obterTitulo()<<endl;
+    cout<<"Ano: "    <<obterAno()<<endl;
+    cout<<"Mes: "    <<mes<<endl;
+    cout<<"Edicao: " <<numEdicao<<endl;
+    cout<<"Editora: "<<obterEditora()<<endl;
+    cout<<"Código: " <<obterCodigo()<<endl;
+    return *this;
+}
 ostream& operator<< (ostream& os, Periodico& P){
-    os<<"Titulo: " <<P.obterTitulo()<<endl;
-    os<<"Ano: "    <<P.obterAno()<<endl;
-    os<<"Mes: "    <<P.mes<<endl;
-    os<<"Edicao: " <<P.numEdicao<<endl;
-    os<<"Editora: "<<P.obterEditora()<<endl;
-    os<<"Código: " <<P.obterCodigo()<<endl;
+    os<<P.obterTitulo()<<endl;
+    os<<P.obterAno()<<endl;
+    os<<P.mes<<endl;
+    os<<P.numEdicao<<endl;
+    os<<P.obterEditora()<<endl;
+    os<<P.obterCodigo()<<endl;
     return os;
 }
 istream& operator>> (istream& is , Periodico& P){
-    string aux, useless;
-    // Read atribute titulo
+    string aux;
     getline(is,aux);
-    stringstream ssin(aux);
-    ssin>>useless;
-    aux = ssin.str();
     P.setarTitulo(aux);
-    // Read atribute ano
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int ano = stoi(aux);
-    P.setarAno(ano);
-    // Read atribute mes
+    P.setarAno(stoi(aux));
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    P.setarMes(aux);
-    // Read edicao
+    P.mes = aux;
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int ed = stoi(aux);
-    P.setarEdicao(ed);
-    // Read atribute Editora
+    P.numEdicao = stoi(aux);
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
     P.setarEditora(aux);
-    // Read atribute codigo
     getline(is,aux);
-    ssin = stringstream(aux);
-    ssin>>useless;
-    aux = ssin.str();
-    int cod = stoi(aux);
-    P.setarCodigo(cod);
+    P.setarCodigo(stoi(aux));
     return is;
 } 
