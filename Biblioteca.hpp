@@ -12,7 +12,9 @@ class Biblioteca{
 public:
     Biblioteca();// tudo vazio mesmo.
     bool adicionarUsuario(Usuario);
-    bool adicionarPublicacao(Publicacao); 
+    bool adicionarPublicacao(Publicacao);
+    Biblioteca& adicionarLivro(Livro&); 
+    Biblioteca& adicionarPeriodico(Periodico&);
     Biblioteca& adicionarEmprestimo(Emprestimo);
     Biblioteca& excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
     Biblioteca& excluirEmprestimo(const Emprestimo);
@@ -20,7 +22,7 @@ public:
     myVector<Usuario>& obterUsuarios();
     myVector<Publicacao>& obterPublicacoes();
     myVector<Emprestimo>& obterEmprestimos();
-    Biblioteca& arquivarConteudo();
+    Biblioteca& arquivarConteudo(string&);
     Biblioteca& lerArquivo();
     Biblioteca& inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
     Biblioteca& excluirPublicacao(Publicacao); // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;

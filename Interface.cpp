@@ -79,3 +79,13 @@ void Interface::listarPublicacoes(){
 void Interface::listarEmprestimos(){
 
 }
+void Interface::salvarArquivo(){
+    cout<<"Digite o nome do arquivo onde deseja salvar: "<<endl;
+    string nome;
+    cin>>nome;
+    if (nome.find(string(".txt")) == string::npos){
+       nome+=string(".txt"); 
+    }
+    cout<<"Biblioteca salva em: "<<nome<<endl;
+    bib.arquivarConteudo(nome);
+}
