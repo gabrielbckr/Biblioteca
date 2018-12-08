@@ -54,6 +54,13 @@ public:
         }
         return op;
     }
+    friend std::ostream& operator<<(std::ostream& op, myVector& m){
+        op<<"vector "<<m.size()<<std::endl;
+        for (unsigned int ii = 0; ii<m.size(); ii++){
+            op<<m[ii];
+        }
+        return op;
+    }
     friend std::istream& operator>>(std::istream& op, myVector& m){
         std::string useless;
         int size;
