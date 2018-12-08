@@ -12,7 +12,7 @@ string Livro::obterAutores(){
 int Livro::obterNumExemplares(){
     return qtdeExemplares;
 }
-Livro& Livro::operator=(Livro& L){
+Livro& Livro::operator=(const Livro& L){
     this->Publicacao::operator=(L);
     autores = L.autores;
     qtdeExemplares = L.qtdeExemplares;

@@ -22,7 +22,7 @@ public:
         return NULL;
     }
     int findPos(const T& obj) {
-        for (int ii = 0; ii<this->size(); ii++){
+        for (unsigned int ii = 0; ii<this->size(); ii++){
             try{
                 if ( (*this)[ii] == obj){
                     return ii;
@@ -35,7 +35,7 @@ public:
         return -1;
     }
     bool has(const T& obj){
-        for (int ii = 0; ii<this->size(); ii++){
+        for (unsigned int ii = 0; ii<this->size(); ii++){
             try{
                 if ( (*this)[ii] == obj){
                     return true;
