@@ -54,11 +54,11 @@ public:
         return op;
     }
     friend istream& operator>>(istream& op, myVector& m){
-        string useles;
+        string useless;
         int size;
         T var;
-        op>>useles>>size;
-        getline(op,useles);
+        op>>useless>>size;
+        getline(op,useless);
         for(int ii = 0; ii<size; ii++){
             op>>var;
             m.push_back(var);
