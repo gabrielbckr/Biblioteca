@@ -14,6 +14,8 @@ class ItemEmprestimo {
     const Date pegarDataDev() const; // retorna data de devolucao
     bool operator== (const ItemEmprestimo& IE);
     bool isEqualTo (const ItemEmprestimo& IE);
+    ItemEmprestimo& operator= (const ItemEmprestimo& IE);
+    //ItemEmprestimo& operator= (ItemEmprestimo&& IE);
     ~ItemEmprestimo(); // destroi o ItemEmprestimo
 };
 

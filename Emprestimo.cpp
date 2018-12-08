@@ -9,7 +9,7 @@ void Emprestimo::AdicionarLivro(Livro& L) {
         throw "este livro ja foi adicionado";
         return;
     }
-    if (L.obterNumExemplares > 0) {
+    if (L.obterNumExemplares() > 0) {
         itens.push_back(ItemEmprestimo(L));
         L--;
     } else throw "nao ha exemplares disponiveis";

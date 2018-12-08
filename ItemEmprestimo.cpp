@@ -17,4 +17,9 @@ bool ItemEmprestimo::isEqualTo (const ItemEmprestimo& IE) {
         return true;
     return false;
 }
+ItemEmprestimo& ItemEmprestimo::operator= (const ItemEmprestimo& IE) {
+    dataDevolucao = IE.pegarDataDev();
+    livro = IE.livro;
+    return *this;
+}
 ItemEmprestimo::~ItemEmprestimo(){}
