@@ -6,11 +6,11 @@
 
 template<class T>  class myVector : public std::vector<T>{
 public:
-    myVector<T>():std::vector<T>(){}    
+    myVector<T>():std::vector<T>(){}
     T* find(T& obj){
         for (int ii = 0; ii<this->size(); ii++){
             try{
-                if ( (*this)[ii] == obj){ 
+                if ( (*this)[ii] == obj){
                     return &(*this)[ii];
                 }
             }
@@ -20,21 +20,33 @@ public:
         }
         return NULL;
     }
+    int findPos(T& obj) {
+        for (int ii = 0; ii<this->size(); ii++){
+            try{
+                if ( (*this)[ii] == obj){
+                    return ii;
+                }
+            }
+            catch (int e){
+                throw("Implement operator== overload");
+            }
+        }
+        return -1;
+    }
     bool has(T& obj){
         for (int ii = 0; ii<this->size(); ii++){
             try{
-                if ( (*this)[ii] == obj){ 
+                if ( (*this)[ii] == obj){
                     return true;
                 }
             }
             catch (int e){
                 throw("Implement operator== overload");
-                throw;
             }
         }
         return false;
     }
-    friend ostream& operator<<(ostream& op, myVector& m){
+    friend ostream& operator<<(ostream& op, const myVector& m){
         op<<"vector "<<m.size()<<std::endl;
         for (int ii = 0; ii<m.size(); ii++){
             op<<m[ii];

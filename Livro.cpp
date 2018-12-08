@@ -18,7 +18,7 @@ Livro& Livro::operator=(Livro& L){
     qtdeExemplares = L.qtdeExemplares;
     return *this;
 }
-bool Livro::operator==(Livro& L){
+bool Livro::operator==(const Livro& L) {
     if (autores != L.autores){return false;}
     if (qtdeExemplares != L.qtdeExemplares){return false;}
     return this->Publicacao::operator==(L);

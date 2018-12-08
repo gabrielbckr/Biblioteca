@@ -14,7 +14,7 @@ public:
         const int& qtde = 0):Publicacao(tit, ed , a , cod),
         autores(aut), qtdeExemplares(qtde){}
     Livro(const Livro&);
-    ~Livro();
+    ~Livro(){};
     string obterAutores();
     int obterNumExemplares();
     Livro& adExemplar(){qtdeExemplares++; return *this;}
@@ -25,7 +25,7 @@ public:
     Livro& operator--(int){qtdeExemplares--; return *this;}
     Livro& mostrar();
     Livro& operator=(Livro&);
-    bool operator==(Livro& p);
+    bool operator==(const Livro& L);
     friend ostream& operator<< (ostream&, Livro&);
     friend istream& operator>> (istream&, Livro&); 
 };
