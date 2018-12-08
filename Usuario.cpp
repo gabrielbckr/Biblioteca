@@ -1,6 +1,6 @@
 #include "Usuario.hpp"
 
-Usuario::Usuario(Usuario& U){
+Usuario::Usuario(const Usuario& U){
     nome = U.nome;
     cpf=U.cpf;
     endereco=U.endereco;

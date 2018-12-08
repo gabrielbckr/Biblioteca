@@ -14,7 +14,7 @@ public:
     Usuario(const string& n = string("def"), const string& c = string("def"),
         const string& e = string("def"), const string& f = string("def")) :
         nome(n), cpf(c), endereco(e), fone(f), dataPenalizacao(Date()) {} // inicializa dataPenalizacao com data atual
-    Usuario(Usuario&);
+    Usuario(const Usuario&);
     const string pegarNome() const { return nome; }
     const string pegarCpf() const { return cpf; }
     const string pegarEndereco() const { return endereco; }

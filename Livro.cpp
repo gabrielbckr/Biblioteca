@@ -10,15 +10,15 @@ string Livro::obterAutores(){
     return autores;
 }
 int Livro::obterNumExemplares(){
-    return qtdeExemplares;   
+    return qtdeExemplares;
 }
-Livro& Livro::operator=(Livro& L){
+Livro& Livro::operator=(const Livro& L){
     this->Publicacao::operator=(L);
     autores = L.autores;
     qtdeExemplares = L.qtdeExemplares;
     return *this;
 }
-bool Livro::operator==(Livro& L){
+bool Livro::operator==(const Livro& L) {
     if (autores != L.autores){return false;}
     if (qtdeExemplares != L.qtdeExemplares){return false;}
     return this->Publicacao::operator==(L);
@@ -56,5 +56,4 @@ istream& operator>> (istream& is , Livro& L){
     getline(is,aux);
     L.setarCodigo(stoi(aux));
     return is;
-} 
-Livro::~Livro(){}
+}

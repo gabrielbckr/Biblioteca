@@ -7,12 +7,12 @@
 using namespace std;
 
 class Publicacao{
-    int codPublicacao, ano;
     string titulo, editora;
+    int ano, codPublicacao;
 public:
     Publicacao(const string& t = string("def"), const string& ed = string("def"),
                 const int& a = 0, const int& cod = 0):
-                titulo(t), editora(ed),ano(a), codPublicacao(cod){};
+                titulo(t), editora(ed), ano(a), codPublicacao(cod){};
     Publicacao(const Publicacao&);
     virtual ~Publicacao();
     int obterAno(){return ano;}
