@@ -8,7 +8,7 @@
 template<class T>  class myVector : public std::vector<T>{
 public:
     myVector<T>():std::vector<T>(){}
-    T* find(T& obj){
+    T* find(const T& obj){
         for (int ii = 0; ii<this->size(); ii++){
             try{
                 if ( (*this)[ii] == obj){
@@ -21,7 +21,7 @@ public:
         }
         return NULL;
     }
-    int findPos(T& obj) {
+    int findPos(const T& obj) {
         for (int ii = 0; ii<this->size(); ii++){
             try{
                 if ( (*this)[ii] == obj){
@@ -34,7 +34,7 @@ public:
         }
         return -1;
     }
-    bool has(T& obj){
+    bool has(const T& obj){
         for (int ii = 0; ii<this->size(); ii++){
             try{
                 if ( (*this)[ii] == obj){
