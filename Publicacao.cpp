@@ -12,6 +12,7 @@ Publicacao& Publicacao::operator=(const Publicacao& p){
     codPublicacao = p.codPublicacao;
     editora       = p.editora;
     titulo        = p.titulo;
+    return *this;
 }
 bool Publicacao::operator==(const Publicacao& p){
     if (ano!=p.ano){return false;}
@@ -42,5 +43,5 @@ istream& operator>> (istream& is , Publicacao& P){
     P.setarEditora(aux);
     P.setarCodigo(stoi(aux));
     return is;
-} 
+}
 Publicacao::~Publicacao(){}
