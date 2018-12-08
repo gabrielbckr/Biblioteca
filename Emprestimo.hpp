@@ -2,6 +2,7 @@
 #define _EMPRESTIMO_H__
 
 #include <vector>
+#include <string>
 #include "myVector.hpp"
 #include "Date.hpp"
 #include "Usuario.hpp"
@@ -18,7 +19,7 @@ class Emprestimo {
     //constroi um emprestimo com os seguintes valores: numero (próximo
     //número sequencial), dataEmprestimo (data corrente do sistema), dataPrevDevolucao e usuário (passados
     //como argumentos);
-    Emprestimo(const string& dataPrevDev, const Usuario& u) :
+    Emprestimo(const std::string& dataPrevDev, const Usuario& u) :
       numero(proximoNumero++), dataEmprestimo(Date()), dataPrevDevolucao(Date(dataPrevDev)), usuario(u) {}
     void AdicionarLivro(Livro& L); // adiciona um livro ao Emprestimo
     void RemoverLivro(Livro& L); // remove um livro do Emprestimo

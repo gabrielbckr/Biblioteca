@@ -49,7 +49,7 @@ public:
     }
     friend std::ostream& operator<<(std::ostream& op, const myVector& m){
         op<<"vector "<<m.size()<<std::endl;
-        for (int ii = 0; ii<m.size(); ii++){
+        for (unsigned int ii = 0; ii<m.size(); ii++){
             op<<m[ii];
         }
         return op;
