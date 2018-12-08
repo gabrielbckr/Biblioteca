@@ -10,7 +10,7 @@ string Livro::obterAutores(){
     return autores;
 }
 int Livro::obterNumExemplares(){
-    return qtdeExemplares;   
+    return qtdeExemplares;
 }
 Livro& Livro::operator=(Livro& L){
     this->Publicacao::operator=(L);
@@ -56,5 +56,4 @@ istream& operator>> (istream& is , Livro& L){
     getline(is,aux);
     L.setarCodigo(stoi(aux));
     return is;
-} 
-Livro::~Livro(){}
+}

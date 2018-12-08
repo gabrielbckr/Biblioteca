@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 
 template<class T>  class myVector : public std::vector<T>{
 public:
@@ -46,15 +47,15 @@ public:
         }
         return false;
     }
-    friend ostream& operator<<(ostream& op, const myVector& m){
+    friend std::ostream& operator<<(std::ostream& op, const myVector& m){
         op<<"vector "<<m.size()<<std::endl;
         for (int ii = 0; ii<m.size(); ii++){
             op<<m[ii];
         }
         return op;
     }
-    friend istream& operator>>(istream& op, myVector& m){
-        string useless;
+    friend std::istream& operator>>(std::istream& op, myVector& m){
+        std::string useless;
         int size;
         T var;
         op>>useless>>size;
