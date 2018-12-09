@@ -3,6 +3,25 @@
 #define bib (*biblioteca) 
 using namespace std;
 
+#ifdef __linux__
+#define __INIT__ system("stty raw")
+#define __GET_CHAR__ getchar()
+#define __CLEAR__ system("clear")
+#define __END__  system("stty cooked")
+#elif _WIN32 
+#include <conio.h>
+#include <windows.h>
+#define __INIT__ system("cls")
+#define __GET_CHAR__ _getch()
+#define __CLEAR__ system("cls")
+#define __END__  system("cls")
+#else
+#define __INIT__ 
+#define __GET_CHAR__ getchar()
+#define __CLEAR__
+#define __END__  
+#endif
+
 void Interface::cadastrarUsuario(){
     string nome, cpf, endereco, fone;
     cout<<"Inserir Usuario (Nome, CPF, Endereco, Telefone):"<<endl;
@@ -51,7 +70,11 @@ void Interface::excluirLivro(){
     
 }
 void Interface::excluirPeriodico(){
-    
+    char op;
+    do{
+        cout<<"Indira os dados Do periodico a ser "<<endl;
+        op = __GET_CHAR__;
+    }while(op == 'N' || op == 'n');
 }
 void Interface::excluirEmprestimo(){
     
@@ -63,22 +86,75 @@ void Interface::devolverTodoEmprestimo(){
     
 }
 void Interface::devolverLivro(){
-    
+    string usuario,  titulo;
+    cout<<"Digite o nome do usuario que vai devolver o Livro:"<<endl;
+    getline(cin,usuario);
+    cout<<"Digite o Titulo do Livro a ser devolvido";
+    cin>>titulo;
+    myVector<Emprestimo> empr = bib.obterEmprestimos();
+    myVector<Publicacao*> ls = bib.buscaPublicacao(titulo);
+    if (ls.size()>1){
+        cout<<"TItulo do Livro muito inespecifico. Tente novamente"<<endl;
+        return;
+    }
+    else if(ls.size()<1){
+        cout<<"TItulo nao foi encontrado"<<endl;
+        return;
+    }
+    for(int ii = 0; ii<empr.size(); ii++){
+        if(empr[ii].obterUsuario().pegarNome() == usuario  ){
+            Livro* OLivro = dynamic_cast<Livro*> (ls[0]);
+            empr[ii].DevolverLivro(*OLivro);
+            cout<<"Livro devolvido com sucesso"<<endl;
+            return;
+        }
+        else{
+            cout<<"Livro nao foi devolvido"<<endl;
+        }
+    }
+
 }
 void Interface::pesquisarPublicacao(){
-
+    cout<<"Digite a palavra a ser pesquisada:"<<endl;
+    string pesquise;
+    cin>>pesquise;
+    myVector<Livro> livros = bib.buscaLivroAutor(pesquise);
+    for (int ii =0; ii<livros.size(); ii++){
+        livros[ii].mostrar();
+    }
+    myVector<Publicacao*> pubs = bib.buscaPublicacao(pesquise);
+    for (int ii =0; ii<pubs.size(); ii++){
+        pubs[ii]->mostrar();
+    }
 }
 void Interface::pesquisarLivroAutor(){
-    
+    cout<<"Digite o nome da/do autora/autor:"<<endl;
+    string pesquise;
+    cin>>pesquise;
+    myVector<Livro> livros = bib.buscaLivroAutor(pesquise);
+    for (int ii =0; ii<livros.size(); ii++){
+        livros[ii].mostrar();
+    }
 }
 void Interface::listarPublicacoes(){
+    cout<<"LISTA DE PUBLICACOES:"<<endl;
     cout<<"LIVROS:"<<endl;
-    cout<<bib.obterLivros();
+    myVector<Livro> livros = bib.obterLivros();
+    for (int ii =0; ii<livros.size(); ii++){
+        livros[ii].mostrar();
+    }
     cout<<"PERIODICOS:"<<endl;
-    cout<<bib.obterPeriodicos();
+    myVector<Periodico> periodicos = bib.obterPeriodicos();
+    for (int ii =0; ii<periodicos.size(); ii++){
+        periodicos[ii].mostrar();
+    }
 }
 void Interface::listarEmprestimos(){
-
+    cout<<"LISTA DE EMPRESTIMOS"<<endl;
+    myVector<Emprestimo>& empr = bib.obterEmprestimos();
+    for (int ii =0; ii<empr.size(); ii++){
+        empr[ii].mostrar();
+    }
 }
 void Interface::salvarArquivo(){
     cout<<"Digite o nome do arquivo onde deseja salvar: "<<endl;
@@ -91,4 +167,27 @@ void Interface::salvarArquivo(){
     bib.arquivarConteudo(nome);
 }
 void Interface::exibirMenu(){
+    /*__INIT__;
+    while(true){
+        cout<<"1 - Cadastrar | ESC - Sair"<<endl;
+        char op = __GET_CHAR__;
+        switch (op){
+            case '1':
+                cout<<" A - Cadastrar Livro | B"<<endl;  
+        
+        }
+    }
+    __END__;
+    */
+}
+Interface::Interface(){
+}
+Interface::Interface(Biblioteca* b):biblioteca(b){
+    __INIT__;
+}
+Interface::Interface(Biblioteca& b):biblioteca(&b){
+    __INIT__;
+}
+Interface::~Interface(){
+    __END__;
 }
