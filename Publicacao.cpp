@@ -18,7 +18,6 @@ bool Publicacao::operator==(const Publicacao& p){
     if (ano!=p.ano){return false;}
     if (codPublicacao!=p.codPublicacao){return false;}
     if (editora!=p.editora){return false;}
-    if (editora!=p.editora){return false;}
     if (titulo!=p.titulo){return false;}
     return true;
 }
@@ -29,7 +28,7 @@ Publicacao& Publicacao::mostrar(){
     cout<<"Código: " <<obterCodigo()<<endl;
     return *this;
 }
-ostream& operator<< (ostream& os, Publicacao& P){
+ostream& operator<< (ostream& os, const Publicacao& P){
     os<<P.obterTitulo()<<endl;
     os<<P.obterAno()<<endl;
     os<<P.obterEditora()<<endl;

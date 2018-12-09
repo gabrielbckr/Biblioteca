@@ -4,6 +4,7 @@
 #include "Date.hpp"
 #include "Livro.hpp"
 #include <string>
+#include <iostream>
 
 class ItemEmprestimo {
     Date dataDevolucao; // data da devolucao
@@ -15,7 +16,7 @@ class ItemEmprestimo {
     bool operator== (const ItemEmprestimo& IE);
     bool isEqualTo (const ItemEmprestimo& IE);
     ItemEmprestimo& operator= (const ItemEmprestimo& IE);
-    //ItemEmprestimo& operator= (ItemEmprestimo&& IE);
+    friend std::ostream& operator<< (std::ostream& out, const ItemEmprestimo& IE);
     ~ItemEmprestimo(); // destroi o ItemEmprestimo
 };
 

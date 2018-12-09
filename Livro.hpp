@@ -15,8 +15,8 @@ public:
         autores(aut), qtdeExemplares(qtde){}
     Livro(const Livro&);
     ~Livro(){};
-    string obterAutores();
-    int obterNumExemplares();
+    string obterAutores() const;
+    int obterNumExemplares() const;
     Livro& adExemplar(){qtdeExemplares++; return *this;}
     Livro& subExemplar(){qtdeExemplares--; return *this;}
     Livro& setarExemplares(int n){qtdeExemplares = n; return *this;}
@@ -26,7 +26,7 @@ public:
     Livro& mostrar();
     Livro& operator=(const Livro&);
     bool operator==(const Livro& L);
-    friend ostream& operator<< (ostream&, Livro&);
+    friend ostream& operator<< (ostream&, const Livro&);
     friend istream& operator>> (istream&, Livro&);
 };
 

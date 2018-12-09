@@ -22,4 +22,9 @@ ItemEmprestimo& ItemEmprestimo::operator= (const ItemEmprestimo& IE) {
     livro = IE.livro;
     return *this;
 }
+std::ostream& operator<< (std::ostream& out, const ItemEmprestimo& IE) {
+    out << "Livro: " << IE.livro.obterTitulo() << std::endl;
+    out << "Data de devolucao: " << IE.dataDevolucao << std::endl;
+    return out;
+}
 ItemEmprestimo::~ItemEmprestimo(){}
