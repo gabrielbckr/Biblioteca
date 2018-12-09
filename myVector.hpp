@@ -47,6 +47,32 @@ public:
         }
         return false;
     }
+    int findPos(T& obj) {
+        for (unsigned int ii = 0; ii<this->size(); ii++){
+            try{
+                if ( (*this)[ii] == obj){
+                    return ii;
+                }
+            }
+            catch (int e){
+                throw("Implement operator== overload");
+            }
+        }
+        return -1;
+    }
+    bool has(T& obj){
+        for (unsigned int ii = 0; ii<this->size(); ii++){
+            try{
+                if ( (*this)[ii] == obj){
+                    return true;
+                }
+            }
+            catch (int e){
+                throw("Implement operator== overload");
+            }
+        }
+        return false;
+    }
     friend std::ostream& operator<<(std::ostream& op, const myVector& m){
         op<<"vector "<<m.size()<<std::endl;
         for (unsigned int ii = 0; ii<m.size(); ii++){
