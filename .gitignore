@@ -9,3 +9,5 @@ test*
 *.sh
 exec
 .ipynb_checkpoints*
+*.ipynb_checkpoints*
+*.ipynb_checkpoints
