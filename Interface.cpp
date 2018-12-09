@@ -64,17 +64,41 @@ void Interface::inserirItem(){
     
 }
 void Interface::excluirUsuario(){
-    
+    Usuario u;
+    string s;
+    cout<<"Insira os dados do usuario a ser excluido"<<endl;
+    cout<<"Digite o nome: "<<endl; getline(cin,s);
+    u.setarNome(s);
+    cout<<"Digite o CPF: "<<endl; getline(cin,s);
+    u.setarCpf(s);
+    try{
+        bib.excluirUsuario(u);
+    }catch(string s){
+        cout<< s<<endl;
+    };
 }
 void Interface::excluirLivro(){
     
 }
 void Interface::excluirPeriodico(){
     char op;
-    do{
-        cout<<"Indira os dados Do periodico a ser "<<endl;
-        op = __GET_CHAR__;
-    }while(op == 'N' || op == 'n');
+    Usuario u;
+    string s;
+    int i;
+    cout<<"Insira os dados do periodico a ser excluido"<<endl;
+    cout<<"Digite o nome: "<<endl; getline(cin,s);
+    u.setarNome(s);
+    cout<<"Digite o CPF: "<<endl; getline(cin,s);
+    u.setarCpf(s);
+    op = __GET_CHAR__;
+    myVector<Usuario> usr = bib.obterUsuarios();
+    int pos = usr.findPos(u);
+    if (pos == -1){
+        cout<<"Usuario nao encontrado. tente novamente."<<endl;
+        return ;
+    }else{
+
+    }
 }
 void Interface::excluirEmprestimo(){
     

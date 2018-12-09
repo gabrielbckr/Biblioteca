@@ -14,11 +14,11 @@ class Biblioteca{
 public:
     Biblioteca();// tudo vazio mesmo.
     Biblioteca& adicionarUsuario(Usuario&);
-    Biblioteca& adicionarPublicacao(Publicacao&);
+    Biblioteca& adicionarPublicacao(Publicacao*);
     Biblioteca& adicionarLivro(Livro&); 
     Biblioteca& adicionarPeriodico(Periodico&);
     Biblioteca& adicionarEmprestimo(Emprestimo&);
-    Biblioteca& excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
+    Biblioteca& excluirUsuario(Usuario&); // não pode ser excluído se existir algum empréstimo para ele
     Biblioteca& excluirEmprestimo(const Emprestimo);
     Biblioteca& exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
     myVector<Usuario>& obterUsuarios();
