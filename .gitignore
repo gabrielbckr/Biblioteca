@@ -8,3 +8,4 @@ testerbin
 test*
 *.sh
 exec
+.ipynb_checkpoints*
