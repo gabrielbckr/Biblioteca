@@ -23,6 +23,7 @@ class Emprestimo {
       numero(proximoNumero++), dataEmprestimo(Date()), dataPrevDevolucao(Date(dataPrevDev)), usuario(u) {}
     static void setaProximoNumero(const int& i) { proximoNumero = i;}
     Usuario& obterUsuario(){return usuario;}
+    Emprestimo& mostrar();
     void AdicionarLivro(Livro& L); // adiciona um livro ao Emprestimo
     void RemoverLivro(Livro& L); // remove um livro do Emprestimo
     void DevolverLivro(Livro& L); // devolve um livro do Emprestimo
