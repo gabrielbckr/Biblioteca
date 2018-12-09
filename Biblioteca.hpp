@@ -7,25 +7,31 @@
 
 class Biblioteca{
     myVector<Usuario> usuarios;
-    myVector<Publicacao> livros;
-    myVector<Emprestimo> emprestimos;
+    myVector<Livro> livros;
+    myVector<Periodico> periodicos;
+    // myVector<Publicacao> publicacoes;
+    // myVector<Emprestimo> emprestimos;
 public:
     Biblioteca();// tudo vazio mesmo.
-    Biblioteca& adicionarUsuario(Usuario);
-    Biblioteca& adicionarPublicacao(Publicacao); 
-    Biblioteca& adicionarEmprestimo(Emprestimo);
+    Biblioteca& adicionarUsuario(Usuario&);
+    Biblioteca& adicionarPublicacao(Publicacao&);
+    Biblioteca& adicionarLivro(Livro&); 
+    Biblioteca& adicionarPeriodico(Periodico&);
+    Biblioteca& adicionarEmprestimo(Emprestimo&);
     Biblioteca& excluirUsuario(Usuario); // não pode ser excluído se existir algum empréstimo para ele
     Biblioteca& excluirEmprestimo(const Emprestimo);
     Biblioteca& exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
-    Biblioteca& obterUsuarios();
-    Biblioteca& obterPublicacoes();
-    Biblioteca& obterEmprestimos();
-    Biblioteca& arquivarConteudo();
-    Biblioteca& lerArquivo();
+    myVector<Usuario>& obterUsuarios();
+    myVector<Publicacao>& obterPublicacoes();
+    myVector<Livro>& obterLivros();
+    myVector<Periodico>& obterPeriodicos();
+    myVector<Emprestimo>& obterEmprestimos();
+    Biblioteca& arquivarConteudo(string&);
+    Biblioteca& lerArquivo(string&);
     Biblioteca& inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
     Biblioteca& excluirPublicacao(Publicacao); // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;
     Biblioteca& devolverItem(Emprestimo, Livro);
     Biblioteca& devolverTodosItens(Emprestimo);
-    myVector<Publicacao*> buscaPublicacao(string);
-    myVector<Livro*> buscaLivroAutor(string);
+    myVector<Publicacao>& buscaPublicacao(const string&);
+    myVector<Livro>& buscaLivroAutor(const string&);
 };

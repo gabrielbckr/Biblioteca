@@ -30,6 +30,7 @@ public:
     void pesquisarLivroAutor();
     void listarPublicacoes();
     void listarEmprestimos();
+    void salvarArquivo();
     ~Interface();
 };
 
