@@ -3,8 +3,6 @@
 #define bib (*biblioteca) 
 using namespace std;
 
-void Interface::exibirMenu(){
-}
 void Interface::cadastrarUsuario(){
     string nome, cpf, endereco, fone;
     cout<<"Inserir Usuario (Nome, CPF, Endereco, Telefone):"<<endl;
@@ -74,7 +72,10 @@ void Interface::pesquisarLivroAutor(){
     
 }
 void Interface::listarPublicacoes(){
-    
+    cout<<"LIVROS:"<<endl;
+    cout<<bib.obterLivros();
+    cout<<"PERIODICOS:"<<endl;
+    cout<<bib.obterPeriodicos();
 }
 void Interface::listarEmprestimos(){
 
@@ -88,4 +89,6 @@ void Interface::salvarArquivo(){
     }
     cout<<"Biblioteca salva em: "<<nome<<endl;
     bib.arquivarConteudo(nome);
+}
+void Interface::exibirMenu(){
 }
