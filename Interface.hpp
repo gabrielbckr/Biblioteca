@@ -11,8 +11,8 @@ class Interface {
     Biblioteca* biblioteca;
 public:
     Interface();
-    Interface(Biblioteca* b):biblioteca(b){};
-    Interface(Biblioteca& b):biblioteca(&b){};
+    Interface(Biblioteca* b);
+    Interface(Biblioteca& b);
     void exibirMenu() ;
     void cadastrarUsuario() ;
     void cadastrarLivro();
