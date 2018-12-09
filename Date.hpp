@@ -20,8 +20,12 @@ public:
 	const string pegarData() const; // retorna string dd/mm/yyyy
 	void setarData(const string&); // seta a data do objeto
 	void adicionarDias(const int&); // adiciona dias
-	int difDias (const Date&); // retorna dias de diferenca entre o parametro e o objeto (parametro - objeto)
-	bool operator< (const Date&);
+	int difDias (const Date&) const; // retorna dias de diferenca entre o parametro e o objeto (parametro - objeto)
+	bool operator< (const Date&) const;
+	bool operator== (const Date&) const;
+	bool operator== (const string&) const;
+	bool operator!= (const Date&) const;
+	bool operator!= (const string&) const;
 	friend ostream& operator<< (ostream&, const Date&);
 	friend istream& operator>> (istream&, Date&);
 	~Date();

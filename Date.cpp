@@ -66,12 +66,24 @@ void Date::adicionarDias(const int& dias) {
 	if (numCharConv > 0) dataString = aux; // se 0, o numero de caracteres foi excedido
 	else throw "maximo de caracteres excedido";
 }
-int Date::difDias (const Date& d) {
+int Date::difDias (const Date& d) const {
 	double difSegundos = difftime(stringToTime(d.dataString), stringToTime(dataString));
 	return static_cast<int> (static_cast<long int> (difSegundos) / 86400);
 }
-bool Date::operator< (const Date& d) {
+bool Date::operator< (const Date& d) const {
     return (difDias(d) > 0)? true : false;
+}
+bool Date::operator== (const Date& d) const {
+	return (dataString == d.dataString);
+}
+bool Date::operator== (const string& s) const {
+	return (dataString == s);
+}
+bool Date::operator!= (const Date& d) const {
+	return (dataString != d.dataString);
+}
+bool Date::operator!= (const string& s) const {
+	return (dataString != s);
 }
 ostream& operator<< (ostream& out, const Date& d) {
 	out << d.dataString;

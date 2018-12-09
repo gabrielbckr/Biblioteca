@@ -6,10 +6,10 @@ Livro::Livro(const Livro& L) : Publicacao(L) {
     autores = L.autores;
     qtdeExemplares = L.qtdeExemplares;
 }
-string Livro::obterAutores(){
+string Livro::obterAutores() const {
     return autores;
 }
-int Livro::obterNumExemplares(){
+int Livro::obterNumExemplares() const {
     return qtdeExemplares;
 }
 Livro& Livro::operator=(const Livro& L){
@@ -20,7 +20,6 @@ Livro& Livro::operator=(const Livro& L){
 }
 bool Livro::operator==(const Livro& L) {
     if (autores != L.autores){return false;}
-    if (qtdeExemplares != L.qtdeExemplares){return false;}
     return this->Publicacao::operator==(L);
 }
 Livro& Livro::mostrar(){
@@ -32,7 +31,7 @@ Livro& Livro::mostrar(){
     cout<<"Código: "      <<obterCodigo()<<endl;
     return *this;
 }
-ostream& operator<< (ostream& os, Livro& L){
+ostream& operator<< (ostream& os, const Livro& L){
     os<<L.obterTitulo()<<endl;
     os<<L.obterAutores()<<endl;
     os<<L.obterAno()<<endl;
