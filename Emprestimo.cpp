@@ -63,3 +63,10 @@ std::istream& operator>> (std::istream& in, Emprestimo& E) {
     in >> E.itens;
     return in;
 }
+Emprestimo& Emprestimo::mostrar(){
+    cout << "Numero: " <<numero << std::endl;
+    cout << "DataEmprestimo: " <<dataEmprestimo << std::endl;
+    cout << "Devolução: " <<dataPrevDevolucao << std::endl;
+    cout << "Usuario: " <<usuario.mostrar()<<endl;  // Talvez tenha q tirar esse endl
+    cout << "Itens: " <<itens << std::endl;   // Talvez tenha que fazer itens mostrar 
+}
