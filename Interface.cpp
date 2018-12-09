@@ -139,12 +139,12 @@ void Interface::pesquisarLivroAutor(){
 void Interface::listarPublicacoes(){
     cout<<"LISTA DE PUBLICACOES:"<<endl;
     cout<<"LIVROS:"<<endl;
-    myVector<Livro> livros = bib.obterLivros();
+    myVector<Livro>& livros = bib.obterLivros();
     for (int ii =0; ii<livros.size(); ii++){
         livros[ii].mostrar();
     }
     cout<<"PERIODICOS:"<<endl;
-    myVector<Periodico> periodicos = bib.obterPeriodicos();
+    myVector<Periodico>& periodicos = bib.obterPeriodicos();
     for (int ii =0; ii<periodicos.size(); ii++){
         periodicos[ii].mostrar();
     }
