@@ -25,7 +25,7 @@ void Interface::cadastrarLivro(){
     cout<<"Ano: "; cin>>ano;
     cout<<"Codigo: "; cin>>cod;
     Livro L(tit, ed, ano, cod, autores);
-    bib.adicionarLivro(L);
+    //bib.adicionarLivro(L);
 }
 void Interface::cadastrarPeriodico(){
     string tit, ed, mes;
@@ -38,7 +38,7 @@ void Interface::cadastrarPeriodico(){
     cout<<"Mes: "; cin>>mes;
     cout<<"Numero: "; cin>>numEd;
     Periodico P(tit, ed, ano, cod, mes, numEd);
-    bib.adicionarPeriodico(P);
+    //bib.adicionarPeriodico(P);
 }
 void Interface::cadastrarEmprestimo(){
 

@@ -27,7 +27,7 @@ bool Usuario::operator==(const Usuario& U) const{
     if (nome != U.nome){return false;}
     return (cpf == U.cpf) ;
 }
-ostream& operator<<(ostream& os, Usuario& U){
+ostream& operator<<(ostream& os, const Usuario& U){
     os<<U.nome<<endl;
     os<<U.cpf<<endl;
     os<<U.endereco<<endl;

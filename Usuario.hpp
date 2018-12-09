@@ -28,7 +28,7 @@ public:
     Usuario&  mostrar();
     Usuario& operator=(const Usuario&);
     bool operator==(const Usuario&) const;
-    friend ostream& operator<<(ostream&, Usuario&);
+    friend ostream& operator<<(ostream&, const Usuario&);
     friend istream& operator>>(istream&, Usuario&);
     ~Usuario(){}
 

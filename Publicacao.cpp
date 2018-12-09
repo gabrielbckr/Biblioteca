@@ -37,9 +37,13 @@ ostream& operator<< (ostream& os, const Publicacao& P){
 }
 istream& operator>> (istream& is , Publicacao& P){
     string aux;
+    getline(is, aux);
     P.setarTitulo(aux);
+    getline(is, aux);
     P.setarAno(stoi(aux));
+    getline(is, aux);
     P.setarEditora(aux);
+    getline(is, aux);
     P.setarCodigo(stoi(aux));
     return is;
 }
