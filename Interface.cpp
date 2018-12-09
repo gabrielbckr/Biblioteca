@@ -64,32 +64,18 @@ void Interface::inserirItem(){
     
 }
 void Interface::excluirUsuario(){
-    char op;
     Usuario u;
     string s;
-    int i;
     cout<<"Insira os dados do usuario a ser excluido"<<endl;
     cout<<"Digite o nome: "<<endl; getline(cin,s);
     u.setarNome(s);
     cout<<"Digite o CPF: "<<endl; getline(cin,s);
     u.setarCpf(s);
-    op = __GET_CHAR__;
-    myVector<Usuario>& usr = bib.obterUsuarios();
-    int pos = usr.findPos(u);
-    if (pos == -1){
-        cout<<"Usuario nao encontrado. Tente novamente."<<endl;
-        return ;
-    }else{
-        myVector<Emprestimo>& empr = bib.obterEmprestimos();
-        for(int ii = 0; ii<empr.size(); ii++){
-            if (empr[ii].obterUsuario() == u){
-                cout<<"O Usuario possui emprestimo e, por tanto, nao pode ser excluido."<<endl;
-                return;
-            }
-        }
-        bib.excluirUsuario(usr[pos]);
-    }
-    
+    try{
+        bib.excluirUsuario(u);
+    }catch(string s){
+        cout<< s<<endl;
+    };
 }
 void Interface::excluirLivro(){
     

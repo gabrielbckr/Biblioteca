@@ -45,6 +45,9 @@ void Emprestimo::DevolverTudo() {
         // WIP
     }
 }
+bool Emprestimo::contemLivro(const Livro& L){
+    return (itens.findPos(L)!=-1);
+}
 std::ostream& operator<< (std::ostream& out, const Emprestimo& E) {
     out << E.numero << std::endl;
     out << E.dataEmprestimo << std::endl;
