@@ -13,3 +13,5 @@ exec
 *.ipynb_checkpoints
 notebooks/.ipynb_checkpoints/
 notebooks/.ipynb_checkpoints*
+notebooks/.*
+notebooks/.ipynb*
