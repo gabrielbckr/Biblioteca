@@ -1,4 +1,8 @@
-int main(){
+#include "Interface.hpp"
+#include "Biblioteca.hpp"
 
-return 0;
+int main(){
+    Biblioteca bib;
+    Interface iter = Interface(bib);
+    iter.exibirMenu();
 }
