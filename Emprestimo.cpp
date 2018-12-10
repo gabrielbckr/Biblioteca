@@ -51,8 +51,8 @@ int Emprestimo::DevolverTudo() {
     }
     return devolvidos;
 }
-bool Emprestimo::contemLivro(Livro& L){
-    return (itens.findPos(ItemEmprestimo(L))!=-1);
+bool Emprestimo::contemLivro(const Livro* L){
+    return (itens.findPos(*L)!=-1);
 }
 std::ostream& operator<< (std::ostream& out, const Emprestimo& E) {
     out << E.numero << std::endl;
