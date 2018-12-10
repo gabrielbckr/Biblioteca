@@ -9,4 +9,8 @@ int main(int argc, char** argv){
     }
     Interface iter = Interface(bib);
     iter.exibirMenu();
+    if (argc>1){
+        string nome = string(".")+string(argv[1]);
+        bib.lerArquivo(nome);
+    }
 }
