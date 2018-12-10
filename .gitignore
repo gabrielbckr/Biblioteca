@@ -8,6 +8,11 @@ testerbin
 test*
 *.sh
 exec
-notebook*
-*.ipynb
-*.ipynb*
+.ipynb_checkpoints*
+*.ipynb_checkpoints*
+*.ipynb_checkpoints
+notebooks/.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints*
+notebooks/.*
+notebooks/.ipynb*
+notebooks/.ipynb_checkpoints
