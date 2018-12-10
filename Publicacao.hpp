@@ -23,7 +23,7 @@ public:
     Publicacao& setarAno(int n){ano = n; return *this;}
     Publicacao& setarTitulo(string s){titulo = s; return *this;}
     Publicacao& setarEditora(string s){editora = s; return *this;}
-    Publicacao&  mostrar();
+    virtual Publicacao&  mostrar();
     virtual Publicacao& operator=(const Publicacao&);
     virtual bool operator==(const Publicacao&);
     friend ostream& operator<< (ostream&, const Publicacao&);
