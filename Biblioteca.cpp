@@ -8,7 +8,8 @@ Biblioteca& Biblioteca::arquivarConteudo(string& nome){
     arquivo<<usuarios;
     arquivo<<livros;
     arquivo<<periodicos;
-    //arquivo<<emprestimos;
+    arquivo<<emprestimos;
+    arquivo.close();
     return *this;
 }
 Biblioteca& Biblioteca::lerArquivo(string& nome){
@@ -17,10 +18,11 @@ Biblioteca& Biblioteca::lerArquivo(string& nome){
     arquivo>>usuarios;
     arquivo>>livros;
     arquivo>>periodicos;
-    //arquivo>>emprestimos;
+    arquivo>>emprestimos;
+    arquivo.close();
     return *this;
 }
-myVector<Livro>& Biblioteca::buscaLivroAutor(const string& s){
+myVector<Livro> Biblioteca::buscaLivroAutor(const string& s){
     myVector<Livro> vec;
     string autores;
     for (int ii = 0 ; ii < livros.size(); ii++){
@@ -31,7 +33,7 @@ myVector<Livro>& Biblioteca::buscaLivroAutor(const string& s){
     }
     return vec;
 }
-myVector<Publicacao*>& Biblioteca::buscaPublicacao(const string& s){
+myVector<Publicacao*> Biblioteca::buscaPublicacao(const string& s){
     myVector<Publicacao*> vec;
     string titulo;
     for (int ii = 0 ; ii < livros.size(); ii++){
@@ -48,7 +50,7 @@ myVector<Publicacao*>& Biblioteca::buscaPublicacao(const string& s){
     }
     return vec;
 }
-myVector<Publicacao*>& Biblioteca::obterPublicacoes(){
+myVector<Publicacao*> Biblioteca::obterPublicacoes(){
     myVector<Publicacao*> vecp;
     for (int ii = 0 ; ii < livros.size(); ii++){
             vecp.push_back(&livros[ii]);
@@ -59,11 +61,7 @@ myVector<Publicacao*>& Biblioteca::obterPublicacoes(){
     return vecp;
 }
 myVector<Periodico>& Biblioteca::obterPeriodicos(){
-    myVector<Periodico> vecp;
-    for (int ii = 0 ; ii < periodicos.size(); ii++){
-            vecp.push_back(periodicos[ii]);
-    }
-    return vecp;
+    return periodicos;
 } 
 Biblioteca& Biblioteca::adicionarUsuario(Usuario& U){
     int pos = usuarios.findPos(U);
@@ -116,11 +114,7 @@ Biblioteca& Biblioteca::excluirUsuario(Usuario& U){
 Biblioteca& Biblioteca::excluirEmprestimo(const Emprestimo){}
 Biblioteca& Biblioteca::exluirItemEmprestimo( Emprestimo, ItemEmprestimo){}
 myVector<Usuario>& Biblioteca::obterUsuarios(){
-    myVector<Usuario> vecp;
-    for (int ii = 0 ; ii < usuarios.size(); ii++){
-            vecp.push_back(usuarios[ii]);
-    }
-    return vecp;
+    return usuarios;
 }
 myVector<Emprestimo>& Biblioteca::obterEmprestimos(){}
 Biblioteca& Biblioteca::inserirItemEmprestimo(Emprestimo, ItemEmprestimo){}
@@ -131,7 +125,7 @@ Biblioteca& Biblioteca::excluirPublicacao(Publicacao* P){
         int pos = livros.findPos(*L);
         if (pos!=-1){
             for (int ii =0; ii<emprestimos.size(); ii++){
-                if (emprestimos[ii].contemLivro(*L)){
+                if (emprestimos[ii].contemLivro(L)){
                     throw("Livro esta emprestado");
                     return *this;
                 }
