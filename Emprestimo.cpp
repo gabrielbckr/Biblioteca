@@ -77,5 +77,6 @@ Emprestimo& Emprestimo::mostrar(){
     cout << "DataEmprestimo: " <<dataEmprestimo << std::endl;
     cout << "Devolução: " <<dataPrevDevolucao << std::endl;
     cout << "Usuario: " <<usuario.mostrar()<<endl;  // Talvez tenha q tirar esse endl
-    cout << "Itens: " <<itens << std::endl;   // Talvez tenha que fazer itens mostrar 
+    cout << "Itens: " <<itens << std::endl;   // Talvez tenha que fazer itens mostrar
+    return *this;
 }
