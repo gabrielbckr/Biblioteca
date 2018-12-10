@@ -12,7 +12,6 @@ class Biblioteca{
     myVector<Usuario> usuarios;
     myVector<Livro> livros;
     myVector<Periodico> periodicos;
-    // myVector<Publicacao> publicacoes;
     myVector<Emprestimo> emprestimos;
 public:
     Biblioteca(){}// tudo vazio mesmo.

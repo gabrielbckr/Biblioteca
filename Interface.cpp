@@ -140,7 +140,7 @@ void Interface::pesquisarLivroAutor(){
     myVector<Livro> livros = bib.buscaLivroAutor(pesquise);
     if(livros.empty()){cout<<"Nenhum livro encontrado com essa buca."<<endl;return;}
     for (int ii =0; ii<livros.size(); ii++){
-        //livros[ii].mostrar();
+        livros[ii].mostrar();
     }
 }
 void Interface::listarPublicacoes(){
@@ -306,7 +306,6 @@ void Interface::exibirMenu(){
                 salvarArquivo();
                 break;
             default:
-                __CLEAR__;
                 imprimirPrimeiroMenu();
                 break;
         } 
