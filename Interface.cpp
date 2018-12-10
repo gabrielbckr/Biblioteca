@@ -4,16 +4,16 @@
 using namespace std;
 
 #ifdef __linux__
-#define __INIT__ system("stty raw")
+#define __INIT__ system("stty raw  opost") // modifica entrada do teclado para nao precisar de enter
 #define __GET_CHAR__ getchar()
-#define __CLEAR__ system("clear")
-#define __END__  system("stty cooked")
+#define __CLEAR__ system("clear") // limpa display
+#define __END__  system("stty cooked") // desfaz __INIT__
 #elif _WIN32 
 #include <conio.h>
 #include <windows.h>
-#define __INIT__ system("cls")
-#define __GET_CHAR__ _getch()
-#define __CLEAR__ system("cls")
+#define __INIT__ system("cls")  // __INIT__ nao é necessario se é windows
+#define __GET_CHAR__ _getch() // pq conio ja tem a funçã oque faz isso tuso
+#define __CLEAR__ system("cls") // limpa display
 #define __END__  system("cls")
 #else
 #define __INIT__ 
@@ -191,18 +191,155 @@ void Interface::salvarArquivo(){
     bib.arquivarConteudo(nome);
 }
 void Interface::exibirMenu(){
-    /*__INIT__;
-    while(true){
-        cout<<"1 - Cadastrar | ESC - Sair"<<endl;
-        char op = __GET_CHAR__;
+    char op;
+    __CLEAR__;
+    imprimirPrimeiroMenu();
+    do{
+        __INIT__;
+        op = __GET_CHAR__;
+        __END__;
+        cout<<endl;
         switch (op){
-            case '1':
-                cout<<" A - Cadastrar Livro | B"<<endl;  
-        
-        }
+            case '1': // 
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                cout<<"CADASTRAR: a - Usuario | "
+                <<"b - Livro | "
+                "c - Periodico | "
+                "d - Emprestimo | "<<endl;
+                break;  
+            case '2': //      
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                cout<<"EXLUIR: e - Usuario | "
+                <<"f - Livro | "
+                <<"g - Periodico | "
+                <<"h - Emprestimo | "
+                <<"i - Item | "<<endl;
+                break;
+            case '3': //   
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                cout<<"PESQUISAR: j - Publicacao | "
+                <<"k - Livro por nome |"<<endl;
+                break;
+            
+            case '4': // Devolver   
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                cout<<"DEVOLVER: l - Emprestimo Inteiro | "
+                <<"m - Apenas um Livro |"<<endl;
+                break;
+            case '5': // Listar
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                cout<<"LISTAR: n - Publicacoes | "
+                <<"o - Emprestimos |"<<endl;
+                break;
+            case '6': // Carregar/Salvar
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                cout<<"ARQUIVO: p - carregar de Arquivo | "
+                <<"q - Salvar em Arquivo |"<<endl;
+                break;
+            case 'a': // cadastrarUsuario
+                cout<<"Cadastrar Usuario"<<endl;
+                cadastrarUsuario();
+                break;
+            case 'b': // cadastrarLivro
+                cout<<"Cadastrar Livro"<<endl;
+                cadastrarLivro();
+                break;
+            case 'c': // cadastrar Periodico
+                cout<<"Cadastrar Periodico"<<endl;
+                cadastrarPeriodico();
+                break;
+            case 'd': // cadastrarEmprestimo
+                cout<<"Cadastrar Emprestimo"<<endl;
+                cadastrarEmprestimo();
+                break;
+            
+            case 'e': // excluirUsuario
+                cout<<"Excluir Usuario"<<endl;
+                excluirUsuario();
+                break;
+            case 'f': // excluirLivro
+                cout<<"Excluir Livro"<<endl;
+                excluirLivro();
+                break;
+            case 'g': // excluirPeriodico
+                cout<<"Excluir Periodico"<<endl;
+                excluirPeriodico();
+                break;
+            case 'h': // excluirEmprestimo
+                cout<<"Excluir Emprestimo"<<endl;
+                excluirEmprestimo();
+                break;
+            case 'i': // excluit item
+                cout<<"Excluir Item"<<endl;
+                excluirItem();
+                break;
+            
+            case 'j': // pesquisarPublicacao
+                cout<<"Pesquisar Publicacao"<<endl;
+                pesquisarPublicacao();
+                break;
+            case 'k': // pesquisarLivroAutor
+                cout<<"Pesquisar Livro por Autor"<<endl;
+                pesquisarLivroAutor();
+                break;
+            
+            
+            case 'l': //devolverTodoEmprestimo 
+                cout<<"Devolver Todo Emprestimo"<<endl;
+                devolverTodoEmprestimo();
+                break;
+            case 'm': // devolverLivro
+                cout<<"Devolver Livro"<<endl;
+                devolverLivro();
+                break;
+            
+            case 'n': // listarPublicacoes
+                cout<<"Listar Publicacoes"<<endl;
+                listarPublicacoes();
+                break;
+            case 'o': // listarEmprestimos
+                cout<<"Listar Emprestimos"<<endl;
+                listarEmprestimos();
+                break;
+            case 'p': // carregarArquivo
+                cout<<"Carregar Dados de um Arquivo"<<endl;
+                carregarArquivo();
+                break;
+            case 'q': // salvarArquivo
+                cout<<"Salvar Dados num Arquivo"<<endl;
+                salvarArquivo();
+                break;
+            default:
+                __CLEAR__;
+                imprimirPrimeiroMenu();
+                break;
+        } 
+    }while(op!=27);
+    __CLEAR__;
+}
+void Interface::carregarArquivo(){
+    cout<<"Digite o nome do arquivo onde a ser carregado: "<<endl;
+    string nome;
+    cin>>nome;
+    if (nome.find(string(".txt")) == string::npos){
+       nome+=string(".txt"); 
     }
-    __END__;
-    */
+    cout<<"Biblioteca salva em: "<<nome<<endl;
+    bib.lerArquivo(nome);
+}
+void Interface::imprimirPrimeiroMenu(){
+    cout<<"Bilioteca"<<endl;
+    cout<<"1 - Cadastrar | 2 - Excluir |"
+    <<" 3 - Pesquisar  "<<endl
+    <<"4 - Devolver  | 5 - Listar  | "
+    <<"6 - Arquivo(Carregar/Salvar)  "<<endl
+    <<"ESC - Sair    |"<<endl;
 }
 Interface::Interface(){
 }
@@ -214,4 +351,4 @@ Interface::Interface(Biblioteca& b):biblioteca(&b){
 }
 Interface::~Interface(){
     __END__;
-}
+} 
