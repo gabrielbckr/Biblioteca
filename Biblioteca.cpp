@@ -28,7 +28,7 @@ myVector<Livro> Biblioteca::buscaLivroAutor(const string& s){
     for (int ii = 0 ; ii < livros.size(); ii++){
         autores = livros[ii].obterAutores();
         if (!(autores.find(s) == string::npos)){
-            vec.push_back(vec[ii]);
+            vec.push_back(livros[ii]);
         }
     }
     return vec;

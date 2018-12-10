@@ -11,10 +11,10 @@ using namespace std;
 #elif _WIN32 
 #include <conio.h>
 #include <windows.h>
-#define __INIT__ system("cls")  // __INIT__ nao é necessario se é windows
+#define __INIT__  // __INIT__ nao é necessario se é windows
 #define __GET_CHAR__ _getch() // pq conio ja tem a funçã oque faz isso tuso
 #define __CLEAR__ system("cls") // limpa display
-#define __END__  system("cls")
+#define __END__  
 #else
 #define __INIT__ 
 #define __GET_CHAR__ getchar()
@@ -57,14 +57,6 @@ void Interface::cadastrarPeriodico(){
     Periodico P(tit, ed, ano, cod, mes, numEd);
     bib.adicionarPeriodico(P);
 }
-void Interface::cadastrarEmprestimo(){
-    /*do{
-        insetirItem();
-    }while(/*o puto do usuario estiver a fim *//*)*/
-}
-void Interface::inserirItem(){
-    
-}
 void Interface::excluirUsuario(){
     Usuario u;
     string s;
@@ -78,9 +70,6 @@ void Interface::excluirUsuario(){
     }catch(string s){
         cout<< s<<endl;
     };
-}
-void Interface::excluirLivro(){
-    
 }
 void Interface::excluirPeriodico(){
     char op;
@@ -102,15 +91,6 @@ void Interface::excluirPeriodico(){
         per.erase(per.begin()+pos);
         cout<<"Periodico excluído."<<endl;
     }
-}
-void Interface::excluirEmprestimo(){
-    
-}
-void Interface::excluirItem(){
-    
-}
-void Interface::devolverTodoEmprestimo(){
-    
 }
 void Interface::devolverLivro(){
     string usuario,  titulo;
@@ -145,13 +125,12 @@ void Interface::pesquisarPublicacao(){
     cout<<"Digite a palavra a ser pesquisada:"<<endl;
     string pesquise;
     cin>>pesquise;
-    myVector<Livro> livros = bib.buscaLivroAutor(pesquise);
-    for (int ii =0; ii<livros.size(); ii++){
-        livros[ii].mostrar();
-    }
     myVector<Publicacao*> pubs = bib.buscaPublicacao(pesquise);
-    for (int ii =0; ii<pubs.size(); ii++){
-        pubs[ii]->mostrar();
+    if(pubs.empty()){cout<<"Nenhum item encontrado com essa busca"<<endl;}
+    else{
+        for (int ii =0; ii<pubs.size(); ii++){
+            pubs[ii]->mostrar();
+        }
     }
 }
 void Interface::pesquisarLivroAutor(){
@@ -159,6 +138,7 @@ void Interface::pesquisarLivroAutor(){
     string pesquise;
     cin>>pesquise;
     myVector<Livro> livros = bib.buscaLivroAutor(pesquise);
+    if(livros.empty()){cout<<"Nenhum livro encontrado com essa buca."<<endl;return;}
     for (int ii =0; ii<livros.size(); ii++){
         livros[ii].mostrar();
     }
@@ -326,7 +306,6 @@ void Interface::exibirMenu(){
                 salvarArquivo();
                 break;
             default:
-                __CLEAR__;
                 imprimirPrimeiroMenu();
                 break;
         } 
@@ -362,3 +341,24 @@ Interface::Interface(Biblioteca& b):biblioteca(&b){
 Interface::~Interface(){
     __END__;
 } 
+ /* FALTA IMPLEMENTAR */
+void Interface::excluirEmprestimo(){
+    
+}
+void Interface::excluirItem(){
+    
+}
+void Interface::devolverTodoEmprestimo(){
+    
+}
+void Interface::excluirLivro(){
+    
+}
+void Interface::cadastrarEmprestimo(){
+    /*do{
+        insetirItem();
+    }while(/*o puto do usuario estiver a fim *//*)*/
+}
+void Interface::inserirItem(){
+    
+}
