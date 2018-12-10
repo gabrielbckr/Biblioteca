@@ -38,15 +38,21 @@ void Emprestimo::DevolverLivro(Livro& L) {
 // deve existir um método para devolver todos os livros do empréstimo. A quantidade de exemplares de
 // todos os itens (livros) do empréstimo deve ser incrementada de uma unidade. A data de devolução de
 // todos os itens deve ser atualizada pela data do sistema;
-void Emprestimo::DevolverTudo() {
+int Emprestimo::DevolverTudo() {
+    int devolvidos = 0;
     for (unsigned int i = 0; i < itens.size(); i++) {
         if (itens[i].pegarDataDev() != std::string("01/01/1900"))
             continue;
-        // WIP
+        else {
+            itens[i].atualizarDataDev();
+            itens[i]++;
+            devolvidos++;
+        }
     }
+    return devolvidos;
 }
-bool Emprestimo::contemLivro(const Livro& L){
-    return (itens.findPos(L)!=-1);
+bool Emprestimo::contemLivro(const Livro* L){
+    return (itens.findPos(*L)!=-1);
 }
 std::ostream& operator<< (std::ostream& out, const Emprestimo& E) {
     out << E.numero << std::endl;
@@ -71,5 +77,6 @@ Emprestimo& Emprestimo::mostrar(){
     cout << "DataEmprestimo: " <<dataEmprestimo << std::endl;
     cout << "Devolução: " <<dataPrevDevolucao << std::endl;
     cout << "Usuario: " <<usuario.mostrar()<<endl;  // Talvez tenha q tirar esse endl
-    cout << "Itens: " <<itens << std::endl;   // Talvez tenha que fazer itens mostrar 
+    cout << "Itens: " <<itens << std::endl;   // Talvez tenha que fazer itens mostrar
+    return *this;
 }

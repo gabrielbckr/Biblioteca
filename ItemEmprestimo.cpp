@@ -1,5 +1,9 @@
 #include "ItemEmprestimo.hpp"
 
+
+ItemEmprestimo::ItemEmprestimo(){
+
+}
 void ItemEmprestimo::atualizarDataDev(const string& Data) {
     if (Data != "") dataDevolucao.setarData(Data);
     else dataDevolucao.Hoje();
@@ -25,11 +29,12 @@ ItemEmprestimo& ItemEmprestimo::operator= (const ItemEmprestimo& IE) {
 std::ostream& operator<< (std::ostream& out, const ItemEmprestimo& IE) {
     out << IE.livro << std::endl;
     out << IE.dataDevolucao << std::endl;
+    out << IE.livro << std::endl;
     return out;
 }
 std::istream& operator>> (std::istream& in, ItemEmprestimo& IE) {
     in >> IE.dataDevolucao;
-    in >> IE.livro;
+    in >> (*IE.livro);
     return in;
 }
 ItemEmprestimo::~ItemEmprestimo(){}

@@ -27,8 +27,8 @@ class Emprestimo {
     void AdicionarLivro(Livro& L); // adiciona um livro ao Emprestimo
     void RemoverLivro(Livro& L); // remove um livro do Emprestimo
     void DevolverLivro(Livro& L); // devolve um livro do Emprestimo
-    void DevolverTudo(); // devolve todos os livros do Emprestimo
-    bool contemLivro(const Livro& L);
+    int  DevolverTudo(); // devolve todos os livros do Emprestimo
+    bool contemLivro(const Livro* L);
     friend std::ostream& operator<< (std::ostream& out, const Emprestimo& E);
     friend std::istream& operator>> (std::istream& in, Emprestimo& E);
     ~Emprestimo(){} // destroi o Emprestimo
