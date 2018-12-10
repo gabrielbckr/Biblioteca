@@ -15,6 +15,8 @@ class Emprestimo {
     Usuario usuario; // usuario que realizou o emprestimo
     myVector<ItemEmprestimo> itens; // itens emprestados
     static int proximoNumero; // o numero do proximo emprestimo
+    int findPos(Livro& L);
+    bool has(Livro& L);
   public:
     //constroi um emprestimo com os seguintes valores: numero (próximo
     //número sequencial), dataEmprestimo (data corrente do sistema), dataPrevDevolucao e usuário (passados
