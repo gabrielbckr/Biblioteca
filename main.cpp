@@ -3,8 +3,8 @@
 
 int main(int argc, char** argv){
     Biblioteca bib;
-    if (argc>0){
-        string nome = argv[0];
+    if (argc>1){
+        string nome = string(argv[1]);
         bib.lerArquivo(nome);
     }
     Interface iter = Interface(bib);
