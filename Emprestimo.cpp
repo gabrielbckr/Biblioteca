@@ -2,10 +2,26 @@
 
 int Emprestimo::proximoNumero = 1;
 
+int Emprestimo::findPos(Livro& L){
+    for (unsigned int ii =0; ii<itens.size(); ii++){
+        if ( itens[ii]==L ){
+            return ii;
+        }
+    }
+    return -1;
+}
+bool Emprestimo::has(Livro& L){
+    for (unsigned int ii =0; ii<itens.size(); ii++){
+        if ( itens[ii]==L ){
+            return true;
+        }
+    }
+    return false;
+}
 // deve existir um método para adicionar um item (livro) ao empréstimo. Argumento: o livro. A quantidade
 // de exemplares do livro deve ser decrementada de uma unidade (verificar se a quantidade é suficiente);
 void Emprestimo::AdicionarLivro(Livro& L) {
-    if (itens.has(ItemEmprestimo(L))) {
+    if (has(L)) {
         throw "este livro ja foi adicionado";
         return;
     }
@@ -17,7 +33,7 @@ void Emprestimo::AdicionarLivro(Livro& L) {
 // deve existir um método para excluir um item (livro) do empréstimo. Argumento: o livro a ser excluído. A
 // quantidade de exemplares do livro deve ser incrementada de uma unidade;
 void Emprestimo::RemoverLivro(Livro& L) {
-    int aux = itens.findPos(ItemEmprestimo(L));
+    int aux = findPos(L);
     if (aux != -1) {
         itens.erase(itens.begin() + aux);
         L++;
@@ -27,7 +43,7 @@ void Emprestimo::RemoverLivro(Livro& L) {
 // devolvido. A quantidade de exemplares do livro deve ser incrementada de uma unidade. A data de
 // devolução do item deve ser atualizada pela data do sistema;
 void Emprestimo::DevolverLivro(Livro& L) {
-    int aux = itens.findPos(ItemEmprestimo(L));
+    int aux = findPos(L);
     if (aux == -1)
         throw "o livro nao consta na lista de itens";
     else if (itens[aux].pegarDataDev() == std::string("01/01/1900")) {

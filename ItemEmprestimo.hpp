@@ -15,6 +15,7 @@ class ItemEmprestimo {
     void atualizarDataDev(const string& Data = ""); // atualiza data de devolucao (default = data de hoje)
     const Date pegarDataDev() const; // retorna data de devolucao
     bool operator== (const ItemEmprestimo& IE);
+    bool operator==(Livro& L){return *livro == L;}
     bool isEqualTo (const ItemEmprestimo& IE);
     ItemEmprestimo& operator= (const ItemEmprestimo& IE);
     ItemEmprestimo& operator++(int){livro++; return *this;}
