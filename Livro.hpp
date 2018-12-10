@@ -26,6 +26,7 @@ public:
     Livro& mostrar();
     Livro& operator=(const Livro&);
     bool operator==(const Livro& L);
+    friend bool operator==(Livro* L1,Livro& L2){return (*L1)==L2;}
     friend ostream& operator<< (ostream&, const Livro&);
     friend istream& operator>> (istream&, Livro&);
 };

@@ -150,7 +150,7 @@ Biblioteca& Biblioteca::excluirEmprestimo(const Emprestimo E){
             if (emprestimos[ii].obterNumItens()==0){
                 pos = ii;
                 break;
-            }else {throw "";}
+            }else {throw "Emprestimo contem itens ainda nao devolvdios";}
         }
     }
     if (pos!=-1){
@@ -158,7 +158,14 @@ Biblioteca& Biblioteca::excluirEmprestimo(const Emprestimo E){
     }else{throw "Emprestimo nao encontrado";}
     return *this;
 }
-Biblioteca& Biblioteca::exluirItemEmprestimo( Emprestimo, ItemEmprestimo){}
+Biblioteca& Biblioteca::exluirItemEmprestimo( Emprestimo E, ItemEmprestimo I){
+    int pos = emprestimos.findPos(E);
+    if(pos == -1) {throw "Emprestimo nao encontrado";}
+    pos = emprestimos[pos].findPos(I);
+    if (pos == -1){throw "Item nao encontrado nesse emprestimo";}
+    emprestimos.erase(emprestimos.begin()+pos);
+    return *this;
+}
 Biblioteca& Biblioteca::devolverItem(Emprestimo, Livro){}
 Biblioteca& Biblioteca::devolverTodosItens(Emprestimo){}
 Biblioteca& Biblioteca::inserirItemEmprestimo(Emprestimo, ItemEmprestimo){}

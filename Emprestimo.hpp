@@ -26,12 +26,17 @@ class Emprestimo {
     static void setaProximoNumero(const int& i) { proximoNumero = i;}
     Usuario& obterUsuario(){return usuario;}
     Emprestimo& mostrar();
+    int  obterNumero() const {return numero;}
+    int  obterNumItens() const {return itens.size();}
     void AdicionarLivro(Livro& L); // adiciona um livro ao Emprestimo
     void RemoverLivro(Livro& L); // remove um livro do Emprestimo
     void DevolverLivro(Livro& L); // devolve um livro do Emprestimo
     int  DevolverTudo(); // devolve todos os livros do Emprestimo
     bool contemLivro(const Livro* L);
+    int  findPos(Livro&);
+    bool operator==(Emprestimo& E){return numero == E.numero;}
     friend std::ostream& operator<< (std::ostream& out, const Emprestimo& E);
+    int  findPos(ItemEmprestimo&);
     friend std::istream& operator>> (std::istream& in, Emprestimo& E);
     ~Emprestimo(){} // destroi o Emprestimo
 };
