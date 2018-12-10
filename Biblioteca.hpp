@@ -1,3 +1,6 @@
+#ifndef __BIB_TP__POO__
+#define __BIB_TP__POO__
+
 #include "Usuario.hpp"
 #include "Livro.hpp"
 #include "Emprestimo.hpp"
@@ -12,7 +15,7 @@ class Biblioteca{
     // myVector<Publicacao> publicacoes;
     myVector<Emprestimo> emprestimos;
 public:
-    Biblioteca();// tudo vazio mesmo.
+    Biblioteca(){}// tudo vazio mesmo.
     Biblioteca& adicionarUsuario(Usuario&);
     Biblioteca& adicionarPublicacao(Publicacao*);
     Biblioteca& adicionarLivro(Livro&); 
@@ -35,3 +38,5 @@ public:
     myVector<Publicacao*>& buscaPublicacao(const string&);
     myVector<Livro>& buscaLivroAutor(const string&);
 };
+
+#endif
