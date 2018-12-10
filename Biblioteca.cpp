@@ -131,7 +131,7 @@ Biblioteca& Biblioteca::excluirPublicacao(Publicacao* P){
         int pos = livros.findPos(*L);
         if (pos!=-1){
             for (int ii =0; ii<emprestimos.size(); ii++){
-                if (emprestimos[ii].contemLivro(*L)){
+                if (emprestimos[ii].contemLivro(L)){
                     throw("Livro esta emprestado");
                     return *this;
                 }
