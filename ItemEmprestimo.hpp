@@ -8,9 +8,10 @@
 
 class ItemEmprestimo {
     Date dataDevolucao; // data da devolucao
-    Livro& livro; // referência para o livro emprestado
+    Livro* livro; // referência para o livro emprestado
   public:
-    ItemEmprestimo(Livro& L = Livro()) : dataDevolucao("01/01/1900"), livro(L) {} // constroi um ItemEmprestimo
+    ItemEmprestimo();
+    ItemEmprestimo(Livro L ) : dataDevolucao("01/01/1900"), livro(&L) {} // constroi um ItemEmprestimo
     void atualizarDataDev(const string& Data = ""); // atualiza data de devolucao (default = data de hoje)
     const Date pegarDataDev() const; // retorna data de devolucao
     bool operator== (const ItemEmprestimo& IE);
