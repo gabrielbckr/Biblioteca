@@ -38,27 +38,29 @@ void Interface::cadastrarLivro(){
     cout<<"Inserir Livro (Titulo, Autores, Edicao, Ano, Codigo)"<<endl;
     cout<<"Titulo:"; getline(cin,tit); 
     cout<<"Autores: "; getline(cin,autores);
-    cout<<"Edicao: "; cin>>ed;
+    cout<<"Editora: "; cin>>ed;
     cout<<"Ano: "; cin>>ano;
     cout<<"Codigo: "; cin>>cod;
     Livro L(tit, ed, ano, cod, autores);
-    //bib.adicionarLivro(L);
+    bib.adicionarLivro(L);
 }
 void Interface::cadastrarPeriodico(){
     string tit, ed, mes;
     int ano, cod, numEd;
     cout<<"Inserir Livro (Titulo, Edicao, Ano, Codigo, Mes, Numero da Edicao)"<<endl;
     cout<<"Titulo:"; getline(cin,tit); 
-    cout<<"Edicao: "; cin>>ed;
+    cout<<"Editora: "; cin>>ed;
     cout<<"Ano: "; cin>>ano;
     cout<<"Codigo: "; cin>>cod;
     cout<<"Mes: "; cin>>mes;
     cout<<"Numero: "; cin>>numEd;
     Periodico P(tit, ed, ano, cod, mes, numEd);
-    //bib.adicionarPeriodico(P);
+    bib.adicionarPeriodico(P);
 }
 void Interface::cadastrarEmprestimo(){
-
+    /*do{
+        insetirItem();
+    }while(/*o puto do usuario estiver a fim *//*)*/
 }
 void Interface::inserirItem(){
     
@@ -82,22 +84,23 @@ void Interface::excluirLivro(){
 }
 void Interface::excluirPeriodico(){
     char op;
-    Usuario u;
-    string s;
-    int i;
+    string tit,editora,mes;
+    int ano, cod, edicao;
     cout<<"Insira os dados do periodico a ser excluido"<<endl;
-    cout<<"Digite o nome: "<<endl; getline(cin,s);
-    u.setarNome(s);
-    cout<<"Digite o CPF: "<<endl; getline(cin,s);
-    u.setarCpf(s);
-    op = __GET_CHAR__;
-    myVector<Usuario> usr = bib.obterUsuarios();
-    int pos = usr.findPos(u);
+    cout<<"Titulo: "; getline(cin,tit);
+    cout<<"Editora: "; getline(cin,editora);
+    cout<<"Ano: "; cin>>ano;
+    cout<<"Edicao: "; cin>>edicao;
+    cout<<"Mes: "; cin>>mes;
+    cout<<"Codigo: "; cin>>cod; 
+    Periodico P(tit,editora,ano,cod,mes,edicao);
+    myVector<Periodico>& per = bib.obterPeriodicos();
+    int pos = per.findPos(P);
     if (pos == -1){
-        cout<<"Usuario nao encontrado. tente novamente."<<endl;
-        return ;
+        cout<<"Periodico nao foi encontrado"<<endl;
     }else{
-
+        per.erase(per.begin()+pos);
+        cout<<"Periodico excluído."<<endl;
     }
 }
 void Interface::excluirEmprestimo(){
@@ -118,11 +121,11 @@ void Interface::devolverLivro(){
     myVector<Emprestimo> empr = bib.obterEmprestimos();
     myVector<Publicacao*> ls = bib.buscaPublicacao(titulo);
     if (ls.size()>1){
-        cout<<"TItulo do Livro muito inespecifico. Tente novamente"<<endl;
+        cout<<"Titulo do Livro muito inespecifico. Tente novamente"<<endl;
         return;
     }
     else if(ls.size()<1){
-        cout<<"TItulo nao foi encontrado"<<endl;
+        cout<<"Titulo nao foi encontrado"<<endl;
         return;
     }
     for(int ii = 0; ii<empr.size(); ii++){
@@ -164,18 +167,25 @@ void Interface::listarPublicacoes(){
     cout<<"LISTA DE PUBLICACOES:"<<endl;
     cout<<"LIVROS:"<<endl;
     myVector<Livro>& livros = bib.obterLivros();
-    for (int ii =0; ii<livros.size(); ii++){
-        livros[ii].mostrar();
+    if(livros.empty()){cout<<"Nenhum Livro Cadastrado."<<endl;}
+    else{
+            for (int ii =0; ii<livros.size(); ii++){
+            livros[ii].mostrar();
+            }
     }
     cout<<"PERIODICOS:"<<endl;
     myVector<Periodico>& periodicos = bib.obterPeriodicos();
-    for (int ii =0; ii<periodicos.size(); ii++){
-        periodicos[ii].mostrar();
+    if(periodicos.empty()){cout<<"Nenhum periodico cadastrado."<<endl;}
+    else{
+        for (int ii =0; ii<periodicos.size(); ii++){
+            periodicos[ii].mostrar();
+        }
     }
 }
 void Interface::listarEmprestimos(){
     cout<<"LISTA DE EMPRESTIMOS"<<endl;
     myVector<Emprestimo>& empr = bib.obterEmprestimos();
+    if (empr.size()==0){cout<<"Nenhum emprsetimo cadastrado.\r\n";return;}
     for (int ii =0; ii<empr.size(); ii++){
         empr[ii].mostrar();
     }
