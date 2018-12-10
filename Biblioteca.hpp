@@ -25,18 +25,18 @@ public:
     Biblioteca& excluirEmprestimo(const Emprestimo);
     Biblioteca& exluirItemEmprestimo( Emprestimo, ItemEmprestimo);
     myVector<Usuario>& obterUsuarios();
-    myVector<Publicacao*>& obterPublicacoes();
-    myVector<Livro>& obterLivros();
-    myVector<Periodico>& obterPeriodicos();
-    myVector<Emprestimo>& obterEmprestimos();
+    myVector<Publicacao*> obterPublicacoes();
+    myVector<Livro>& obterLivros() ;
+    myVector<Periodico>& obterPeriodicos() ;
+    myVector<Emprestimo>& obterEmprestimos() ;
     Biblioteca& arquivarConteudo(string&);
     Biblioteca& lerArquivo(string&);
     Biblioteca& inserirItemEmprestimo(Emprestimo, ItemEmprestimo);
     Biblioteca& excluirPublicacao(Publicacao*); // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;
     Biblioteca& devolverItem(Emprestimo, Livro);
     Biblioteca& devolverTodosItens(Emprestimo);
-    myVector<Publicacao*>& buscaPublicacao(const string&);
-    myVector<Livro>& buscaLivroAutor(const string&);
+    myVector<Publicacao*> buscaPublicacao(const string&);
+    myVector<Livro> buscaLivroAutor(const string&);
 };
 
 #endif
