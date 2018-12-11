@@ -110,14 +110,10 @@ Biblioteca& Biblioteca::excluirUsuario(Usuario& U){
     usuarios.erase(usuarios.begin()+pos);
     return *this;
 }
-     // não pode ser excluído se existir algum empréstimo para ele
-Biblioteca& Biblioteca::excluirEmprestimo(const Emprestimo){}
-Biblioteca& Biblioteca::exluirItemEmprestimo( Emprestimo, ItemEmprestimo){}
 myVector<Usuario>& Biblioteca::obterUsuarios(){
     return usuarios;
 }
 myVector<Emprestimo>& Biblioteca::obterEmprestimos(){}
-Biblioteca& Biblioteca::inserirItemEmprestimo(Emprestimo, ItemEmprestimo){}
 Biblioteca& Biblioteca::excluirPublicacao(Publicacao* P){
     Livro* L = dynamic_cast<Livro*>(P);
     Periodico* Per = dynamic_cast<Periodico*>(P);
@@ -139,8 +135,37 @@ Biblioteca& Biblioteca::excluirPublicacao(Publicacao* P){
     }
     return *this;
 }  // Se a publicação for um livro, este não pode ser excluído se existir algum empréstimo para ele;
-Biblioteca& Biblioteca::devolverItem(Emprestimo, Livro){}
-Biblioteca& Biblioteca::devolverTodosItens(Emprestimo){}
 myVector<Livro>& Biblioteca::obterLivros(){
     return livros;
 }
+
+
+// ===========================================================================================
+
+// não pode ser excluído se existir algum empréstimo para ele
+Biblioteca& Biblioteca::excluirEmprestimo(const Emprestimo E){
+    int pos = -1;
+    for (int ii=0; ii< emprestimos.size(); ii++){
+        if (emprestimos[ii].obterNumero()==E.obterNumero()){
+            if (emprestimos[ii].obterNumItens()==0){
+                pos = ii;
+                break;
+            }else {throw "Emprestimo contem itens ainda nao devolvdios";}
+        }
+    }
+    if (pos!=-1){
+        emprestimos.erase(emprestimos.begin()+pos);
+    }else{throw "Emprestimo nao encontrado";}
+    return *this;
+}
+Biblioteca& Biblioteca::exluirItemEmprestimo( Emprestimo E, ItemEmprestimo I){
+    int pos = emprestimos.findPos(E);
+    if(pos == -1) {throw "Emprestimo nao encontrado";}
+    pos = emprestimos[pos].findPos(I);
+    if (pos == -1){throw "Item nao encontrado nesse emprestimo";}
+    emprestimos.erase(emprestimos.begin()+pos);
+    return *this;
+}
+Biblioteca& Biblioteca::devolverItem(Emprestimo, Livro){}
+Biblioteca& Biblioteca::devolverTodosItens(Emprestimo){}
+Biblioteca& Biblioteca::inserirItemEmprestimo(Emprestimo, ItemEmprestimo){}

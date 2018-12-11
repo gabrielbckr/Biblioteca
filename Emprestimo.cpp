@@ -96,3 +96,19 @@ Emprestimo& Emprestimo::mostrar(){
     cout << "Itens: " <<itens << std::endl;   // Talvez tenha que fazer itens mostrar
     return *this;
 }
+int  Emprestimo::findPos(Livro& L){
+    for (int ii =0; ii<itens.size(); ii++){
+        if ( itens[ii]==L ){
+            return ii;
+        }
+    }
+    return -1;
+}
+int  Emprestimo::findPos(ItemEmprestimo& I){
+    for (int ii =0; ii<itens.size(); ii++){
+        if ( itens[ii]==I ){
+            return ii;
+        }
+    }
+    return -1;
+}

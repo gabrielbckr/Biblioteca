@@ -20,6 +20,8 @@ class ItemEmprestimo {
     ItemEmprestimo& operator= (const ItemEmprestimo& IE);
     ItemEmprestimo& operator++(int){livro++; return *this;}
     ItemEmprestimo& operator--(int){livro--; return *this;}
+    bool  operator==(Livro& L){return *livro == L;}
+    bool  operator==(ItemEmprestimo& I){return ((*livro == *I.livro) && (dataDevolucao == I.dataDevolucao));}
     friend std::ostream& operator<< (std::ostream& out, const ItemEmprestimo& IE);
     friend std::istream& operator>> (std::istream& in, ItemEmprestimo& IE);
     ~ItemEmprestimo(); // destroi o ItemEmprestimo

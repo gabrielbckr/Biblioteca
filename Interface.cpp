@@ -341,6 +341,7 @@ Interface::Interface(Biblioteca& b):biblioteca(&b){
 Interface::~Interface(){
     __END__;
 } 
+// ========================================================================================
  /* FALTA IMPLEMENTAR */
 void Interface::excluirEmprestimo(){
     
